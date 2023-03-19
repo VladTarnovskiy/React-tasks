@@ -1,6 +1,6 @@
-import productData from '../data';
-import Card from '../components/card/Card';
-import SearchBar from '../components/searchBar/SearchBar';
+import productData from '../../data';
+import Card from '../../components/card/Card';
+import SearchBar from '../../components/searchBar/SearchBar';
 
 function Home() {
   const cards = productData.products.map((el) => {
