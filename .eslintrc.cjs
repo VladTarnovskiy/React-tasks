@@ -45,8 +45,7 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
-
-    // 'react/prefer-stateless-function': 'off',
+    'react/prefer-stateless-function': 'off',
   },
   settings: {
     react: {

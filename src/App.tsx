@@ -1,18 +1,18 @@
-import { HashRouter, Route, Routes, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 import React from 'react';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header';
 import AboutUs from './pages/AboutUs/AboutUs';
 
-type MyState = {
-  pageTitle: string; // like this
-};
+interface MyState {
+  pageTitle: string;
+}
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type MyProps = {};
+interface MyProps {
+  title?: '';
+}
 
-// eslint-disable-next-line react/prefer-stateless-function
 export class App extends React.Component<MyProps, MyState> {
   constructor(props: MyProps) {
     super(props);
@@ -26,25 +26,23 @@ export class App extends React.Component<MyProps, MyState> {
     return (
       <div>
         <div className="navigation">
-          <NavLink
-            className="nav__item"
-            to="/"
-            onClick={() => this.setState({ pageTitle: 'Home' })}
-          >
+          <NavLink className="nav__item" to="/">
             Go Home
           </NavLink>
-          <NavLink
-            className="nav__item"
-            to="/about-us"
-            onClick={() => this.setState({ pageTitle: 'About Us' })}
-          >
+          <NavLink className="nav__item" to="/about-us">
             About Us
           </NavLink>
         </div>
         <Header title={pageTitle} />
         <Routes>
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/about-us"
+            element={<AboutUs changeTitle={() => this.setState({ pageTitle: 'About Us' })} />}
+          />
+          <Route
+            path="/"
+            element={<Home changeTitle={() => this.setState({ pageTitle: 'Home' })} />}
+          />
           <Route
             path="*"
             element={<NotFound changeTitle={() => this.setState({ pageTitle: 'Not Found' })} />}
@@ -57,8 +55,8 @@ export class App extends React.Component<MyProps, MyState> {
 
 export function WrappedApp() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
