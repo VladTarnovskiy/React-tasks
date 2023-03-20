@@ -4,6 +4,7 @@ import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header';
 import AboutUs from './pages/AboutUs/AboutUs';
+import Form from './pages/Form/Form';
 
 interface MyState {
   pageTitle: string;
@@ -32,6 +33,9 @@ export class App extends React.Component<MyProps, MyState> {
           <NavLink className="nav__item" to="/about-us">
             About Us
           </NavLink>
+          <NavLink className="nav__item" to="/form">
+            Form
+          </NavLink>
         </div>
         <Header title={pageTitle} />
         <Routes>
@@ -42,6 +46,10 @@ export class App extends React.Component<MyProps, MyState> {
           <Route
             path="/"
             element={<Home changeTitle={() => this.setState({ pageTitle: 'Home' })} />}
+          />
+          <Route
+            path="/form"
+            element={<Form changeTitle={() => this.setState({ pageTitle: 'Form' })} />}
           />
           <Route
             path="*"
