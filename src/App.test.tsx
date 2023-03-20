@@ -5,16 +5,12 @@ import { App, WrappedApp } from './App';
 
 describe('App', () => {
   it('Renders hello world', () => {
-    // ARRANGE
     render(<WrappedApp />);
-    // ACT
-    // Expect
-
     expect(
       screen.getByRole('heading', {
         level: 1,
       })
-    ).toHaveTextContent('Hello World');
+    ).toHaveTextContent('Home');
   });
   it('Render not found', () => {
     render(

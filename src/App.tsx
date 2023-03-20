@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 import React from 'react';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import AboutUs from './pages/AboutUs/AboutUs';
 
 interface MyState {
