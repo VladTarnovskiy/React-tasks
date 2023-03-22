@@ -1,4 +1,4 @@
-import { describe, it } from 'vitest';
+import { describe } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Header from './Header';
 
