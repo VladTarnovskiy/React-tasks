@@ -1,0 +1,121 @@
+.product-items {
+    width: 100%;
+    box-shadow: 0px 2px 4px rgba(27, 78, 163, 0.2), 0px 4px 8px rgba(41, 121, 255, 0.2);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    justify-items: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.card {
+    max-height: 220px;
+    width: 100%;
+    max-width: 507px;
+    height: 100%;
+    box-shadow: 0px 2px 4px rgb(27 78 163 / 20%), 0px 4px 8px rgb(41 121 255 / 20%);
+    padding: 8px;
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .card__title {
+        text-align: center;
+        padding: 2px;
+        height: 40px;
+        font-family: 'Roboto Bold', sans-serif;
+        background-color: rgba(#19191D, $alpha: 0.8);
+        border: 1px #ffffff solid;
+        border-radius: 5px;
+        color: #9DC2FF;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card__description {
+        width: max-content;
+        background-color: rgba(#19191D, $alpha: 0.8);
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px #ffffff solid;
+        font-size: 0.8rem;
+        font-family: 'Roboto Light', sans-serif;
+
+
+        .card__property {
+            list-style: none;
+            color: #9DC2FF;
+
+            .card__value {
+                color: #ffffff;
+            }
+
+            .card__value_rating {
+                position: relative;
+
+                .card__rate-icon {
+                    position: absolute;
+                    right: -18px;
+                    top: -1px;
+                    background-image: url(../../assets/star.png);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 15px;
+                    height: 15px;
+                    display: inline-block;
+                }
+            }
+
+        }
+    }
+
+    .card__buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 30px;
+        box-sizing: border-box;
+        padding-bottom: 2px;
+
+
+        .card__button {
+            height: 100%;
+            width: 65px;
+            box-shadow: 0px 2px 4px rgb(27 78 163 / 20%), 0px 4px 8px rgb(41 121 255 / 20%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: rgba(#9DC2FF, $alpha: 0.9);
+            border-radius: 5px;
+            font-size: 0.8rem;
+            transition: all .2s ease-out;
+
+
+            &:hover {
+                background-color: #e79f19;
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: scale(1.05);
+            }
+        }
+
+        .card__button-add_active {
+            background-color: rgba(#e79f19, $alpha: 0.9);
+        }
+    }
+}
