@@ -4,7 +4,7 @@ import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header';
 import AboutUs from './pages/AboutUs/AboutUs';
-import Form from './pages/Form/Form';
+import FormPage from './pages/FormPage/FormPage';
 
 interface MyState {
   pageTitle: string;
@@ -49,7 +49,7 @@ export class App extends React.Component<MyProps, MyState> {
           />
           <Route
             path="/form"
-            element={<Form changeTitle={() => this.setState({ pageTitle: 'Form' })} />}
+            element={<FormPage changeTitle={() => this.setState({ pageTitle: 'Form' })} />}
           />
           <Route
             path="*"

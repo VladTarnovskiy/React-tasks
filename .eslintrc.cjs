@@ -46,6 +46,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
     'react/prefer-stateless-function': 'off',
+    'class-methods-use-this': 'off',
   },
   settings: {
     react: {

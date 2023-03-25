@@ -1,27 +1,29 @@
-import './card.scss';
+import './homeCard.scss';
 import React from 'react';
 
 interface MyProps {
-  id: number;
-  title: string;
-  description?: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images?: string[];
-  amount?: number;
-  totalPrice?: number;
-  inBasket?: boolean;
+  card: {
+    id: number;
+    title: string;
+    description?: string;
+    price: number;
+    discountPercentage: number;
+    rating: number;
+    stock: number;
+    brand: string;
+    category: string;
+    thumbnail: string;
+    images?: string[];
+    amount?: number;
+    totalPrice?: number;
+    inBasket?: boolean;
+  };
 }
 
-class Card extends React.Component<MyProps> {
+class HomeCard extends React.Component<MyProps> {
   render() {
-    const { title, thumbnail, category, brand, price, discountPercentage, rating, stock } =
-      this.props;
+    const { card } = this.props;
+    const { title, thumbnail, category, brand, price, discountPercentage, rating, stock } = card;
     return (
       <div
         className="card"
@@ -66,4 +68,4 @@ class Card extends React.Component<MyProps> {
   }
 }
 
-export default Card;
+export default HomeCard;
