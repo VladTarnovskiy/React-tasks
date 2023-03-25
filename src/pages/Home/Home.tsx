@@ -1,6 +1,6 @@
 import React from 'react';
 import productData from '../../data';
-import Card from '../../components/card/Card';
+import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 
 interface MyProps {
@@ -64,20 +64,7 @@ class Home extends React.Component<MyProps, MyState> {
   render() {
     const { productsData } = this.state;
     const cards = productsData.map((el) => {
-      return (
-        <Card
-          title={el.title}
-          thumbnail={el.thumbnail}
-          category={el.category}
-          brand={el.brand}
-          price={el.price}
-          discountPercentage={el.discountPercentage}
-          rating={el.rating}
-          stock={el.stock}
-          key={el.id.toString()}
-          id={el.id}
-        />
-      );
+      return <HomeCard card={el} key={el.id} />;
     });
     return (
       <div>
