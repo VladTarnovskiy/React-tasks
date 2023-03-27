@@ -119,3 +119,29 @@
     justify-content: space-between;
     margin-bottom: 10px;
 }
+
+.form__saved {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%);
+    margin: auto;
+    margin-top: 40px;
+    background-color: white;
+    color: green;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(27, 78, 163, 0.2), 0px 4px 8px rgba(41, 121, 255, 0.2);
+}
+
+.form__saved.active {
+    display: flex;
+}
