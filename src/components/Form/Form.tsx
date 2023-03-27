@@ -1,59 +1,93 @@
 import './form.scss';
-import React, { RefObject } from 'react';
+import React from 'react';
 import { FormCardType } from '../../types/types';
-import Header from '../Header/Header';
 
 interface MyProps {
   addCard: (card: FormCardType) => void;
 }
 
-class Form extends React.Component<MyProps, FormCardType> {
-  stateForm: FormCardType;
+class Form extends React.Component<MyProps> {
+  private formRef = React.createRef<HTMLFormElement>();
 
-  formRef: RefObject<HTMLFormElement>;
+  private formMessageRef = React.createRef<HTMLDivElement>();
 
-  formMessageRef: RefObject<HTMLDivElement>;
+  private nameRef = React.createRef<HTMLInputElement>();
+
+  private birthdayRef = React.createRef<HTMLInputElement>();
+
+  private countryRef = React.createRef<HTMLSelectElement>();
+
+  private carRef = React.createRef<HTMLInputElement>();
+
+  private motorcycleRef = React.createRef<HTMLInputElement>();
+
+  private bikeRef = React.createRef<HTMLInputElement>();
+
+  private maleRef = React.createRef<HTMLInputElement>();
+
+  private femaleRef = React.createRef<HTMLInputElement>();
+
+  private fileRef = React.createRef<HTMLInputElement>();
+
+  private rulesRef = React.createRef<HTMLInputElement>();
 
   constructor(props: MyProps) {
     super(props);
 
-    this.stateForm = {
-      name: '',
-      birthday: '',
-      country: 'Belarus',
-      vehicle: {
-        car: false,
-        motorcycle: false,
-        bike: false,
-      },
-      gender: '',
-      photo: '',
-      rules: false,
-    };
-
-    this.onChangeX = this.onChangeX.bind(this);
+    this.getFileLink = this.getFileLink.bind(this);
     this.submitForm = this.submitForm.bind(this);
-
-    this.formRef = React.createRef<HTMLFormElement>();
-    this.formMessageRef = React.createRef<HTMLDivElement>();
   }
 
-  onChangeX(e: React.ChangeEvent<HTMLInputElement>) {
-    const fileObj = e.target.files;
-    // const fileObj = this.fileRef.current ? this.fileRef.current.files : '';
+  getFileLink(fileObj: FileList) {
     const file = fileObj ? window.URL.createObjectURL(fileObj[0]) : '';
-    this.stateForm.photo = file;
+    return file;
   }
 
   submitForm(e: React.ChangeEvent<HTMLFormElement>) {
+    e.preventDefault();
     const { addCard } = this.props;
-    addCard(this.stateForm);
+
+    const nameRef = this.nameRef.current ? this.nameRef.current?.value : '';
+
+    const birthdayRef = this.birthdayRef.current ? this.birthdayRef.current?.value : '';
+
+    const countryRef = this.countryRef.current ? this.countryRef.current?.value : '';
+
+    const carRef = this.carRef.current ? this.carRef.current?.checked : false;
+
+    const motorcycleRef = this.motorcycleRef.current ? this.motorcycleRef.current?.checked : false;
+
+    const bikeRef = this.bikeRef.current ? this.bikeRef.current?.checked : false;
+
+    const maleRef = this.maleRef.current?.value;
+
+    const femaleRef = this.femaleRef.current?.value;
+
+    const fileRef = this.fileRef.current?.files;
+    const imgRef = this.getFileLink(fileRef!);
+    const rulesRef = this.rulesRef.current ? this.rulesRef.current?.checked : false;
+
+    const sex = this.maleRef.current?.checked ? maleRef : femaleRef;
+
     this.formMessageRef.current?.classList.add('active');
     this.formRef.current?.reset();
+    const formData = {
+      name: nameRef,
+      birthday: birthdayRef,
+      country: countryRef,
+      vehicle: {
+        car: carRef,
+        motorcycle: motorcycleRef,
+        bike: bikeRef,
+      },
+      gender: sex!,
+      photo: imgRef,
+      rules: rulesRef,
+    };
+    addCard(formData);
     setTimeout(() => {
       this.formMessageRef.current?.classList.remove('active');
-    }, 2000);
-    e.preventDefault();
+    }, 3000);
   }
 
   render() {
@@ -70,10 +104,8 @@ class Form extends React.Component<MyProps, FormCardType> {
             placeholder="Enter name"
             className="form__name"
             name="name"
+            ref={this.nameRef}
             pattern="[A-Z][a-z]*"
-            onChange={(e) => {
-              this.stateForm.name = e.target.value;
-            }}
             required
           />
         </div>
@@ -84,22 +116,13 @@ class Form extends React.Component<MyProps, FormCardType> {
             placeholder="Enter date"
             className="form__date"
             name="birthday"
-            onChange={(e) => {
-              this.stateForm.birthday = e.target.value;
-            }}
+            ref={this.birthdayRef}
             required
           />
         </div>
         <div className="input__item">
           <div className="input__item-title">Country:</div>
-          <select
-            name="country"
-            className="form__country"
-            required
-            onChange={(e) => {
-              this.stateForm.country = e.target.value;
-            }}
-          >
+          <select name="country" className="form__country" required ref={this.countryRef}>
             <option value="Belarus">Belarus</option>
             <option value="Germany">Germany</option>
             <option value="USA">USA</option>
@@ -109,16 +132,7 @@ class Form extends React.Component<MyProps, FormCardType> {
           <span className="input__item-title">Vehicle:</span>
           <div className="form__vehicle">
             <label htmlFor="car">
-              <input
-                type="checkbox"
-                id="car"
-                name="vehicle"
-                value="car"
-                onChange={(e) => {
-                  this.stateForm.vehicle.car = e.target.checked;
-                }}
-              />{' '}
-              Car
+              <input type="checkbox" id="car" name="vehicle" value="car" ref={this.carRef} /> Car
             </label>
             <label htmlFor="motorcycle">
               <input
@@ -126,22 +140,12 @@ class Form extends React.Component<MyProps, FormCardType> {
                 id="motorcycle"
                 name="vehicle"
                 value="motorcycle"
-                onChange={(e) => {
-                  this.stateForm.vehicle.motorcycle = e.target.checked;
-                }}
+                ref={this.motorcycleRef}
               />{' '}
               Motorcycle
             </label>
             <label htmlFor="bike">
-              <input
-                type="checkbox"
-                id="bike"
-                name="vehicle"
-                value="bike"
-                onChange={(e) => {
-                  this.stateForm.vehicle.bike = e.target.checked;
-                }}
-              />{' '}
+              <input type="checkbox" id="bike" name="vehicle" value="bike" ref={this.bikeRef} />{' '}
               Bike
             </label>
           </div>
@@ -156,9 +160,7 @@ class Form extends React.Component<MyProps, FormCardType> {
                 name="gender"
                 value="male"
                 required
-                onChange={(e) => {
-                  this.stateForm.gender = e.target.value;
-                }}
+                ref={this.maleRef}
               />{' '}
               male
             </label>
@@ -169,9 +171,7 @@ class Form extends React.Component<MyProps, FormCardType> {
                 name="gender"
                 value="female"
                 required
-                onChange={(e) => {
-                  this.stateForm.gender = e.target.value;
-                }}
+                ref={this.femaleRef}
               />{' '}
               female
             </label>
@@ -185,24 +185,13 @@ class Form extends React.Component<MyProps, FormCardType> {
             className="form__file"
             accept="image/*"
             required
-            onChange={(e) => {
-              this.onChangeX(e);
-            }}
+            ref={this.fileRef}
           />
         </div>
         <div className="input__item">
           <label htmlFor="rules">
-            <input
-              type="checkbox"
-              id="motorcycle"
-              name="rules"
-              value="motorcycle"
-              required
-              onChange={(e) => {
-                this.stateForm.vehicle.motorcycle = e.target.checked;
-              }}
-            />{' '}
-            I agree to the processing of personal data
+            <input type="checkbox" id="motorcycle" name="rules" value="motorcycle" required /> I
+            agree to the processing of personal data
           </label>
         </div>
         <button type="submit" className="submit__button">
@@ -214,152 +203,3 @@ class Form extends React.Component<MyProps, FormCardType> {
 }
 
 export default Form;
-
-// render() {
-//   const { name, birthday, country, vehicle, gender } = this.state;
-//   const { addCard } = this.props;
-//   return (
-//     <form
-//       className="form"
-//       name="PersonalDataForm"
-//       onSubmit={(e) => {
-//         e.preventDefault();
-//       }}
-//     >
-//       <div className="form__title">Personal data</div>
-//       <div className="input__item">
-//         <div className="input__item-title">Name:</div>
-//         <input
-//           type="text"
-//           placeholder="Enter name"
-//           className="form__name"
-//           name="name"
-//           onChange={(e) => {
-//             this.stateForm.name = e.target.value;
-//           }}
-//           required
-//         />
-//       </div>
-//       <div className="input__item">
-//         <div className="input__item-title">Birthday:</div>
-//         <input
-//           type="date"
-//           placeholder="Enter date"
-//           className="form__date"
-//           name="birthday"
-//           onChange={(e) => this.setState({ birthday: e.target.value })}
-//           required
-//         />
-//       </div>
-//       <div className="input__item">
-//         <div className="input__item-title">Country:</div>
-//         <select
-//           name="country"
-//           className="form__country"
-//           onChange={(e) => this.setState({ country: e.target.value })}
-//         >
-//           <option value="Belarus">Belarus</option>
-//           <option value="Germany">Germany</option>
-//           <option value="USA">USA</option>
-//         </select>
-//       </div>
-//       <div className="input__item">
-//         <span className="input__item-title">Vehicle:</span>
-//         <div className="form__vehicle">
-//           <label htmlFor="car">
-//             <input
-//               type="checkbox"
-//               id="car"
-//               name="vehicle"
-//               value="car"
-//               onChange={(e) =>
-//                 this.setState((prevState) => {
-//                   return { vehicle: { ...prevState.vehicle, car: e.target.checked } };
-//                 })
-//               }
-//             />{' '}
-//             Car
-//           </label>
-//           <label htmlFor="motorcycle">
-//             <input
-//               type="checkbox"
-//               id="motorcycle"
-//               name="vehicle"
-//               value="motorcycle"
-//               onChange={(e) =>
-//                 this.setState((prevState) => {
-//                   return { vehicle: { ...prevState.vehicle, motorcycle: e.target.checked } };
-//                 })
-//               }
-//             />{' '}
-//             Motorcycle
-//           </label>
-//           <label htmlFor="bike">
-//             <input
-//               type="checkbox"
-//               id="bike"
-//               name="vehicle"
-//               value="bike"
-//               onChange={(e) =>
-//                 this.setState((prevState) => {
-//                   return { vehicle: { ...prevState.vehicle, bike: e.target.checked } };
-//                 })
-//               }
-//             />{' '}
-//             Bike
-//           </label>
-//         </div>
-//       </div>
-//       <div className="input__item">
-//         <span className="input__item-title">Gender:</span>
-//         <div className="form__gender">
-//           <label htmlFor="male">
-//             <input
-//               type="radio"
-//               id="male"
-//               name="gender"
-//               value="male"
-//               onChange={(e) => this.setState({ gender: e.target.value })}
-//             />{' '}
-//             male
-//           </label>
-//           <label htmlFor="female">
-//             <input
-//               type="radio"
-//               id="female"
-//               name="gender"
-//               value="female"
-//               onChange={(e) => this.setState({ gender: e.target.value })}
-//             />{' '}
-//             female
-//           </label>
-//         </div>
-//       </div>
-//       <div className="input__item">
-//         <span className="input__item-title">Your photo:</span>
-//         <input
-//           type="file"
-//           placeholder="Choose file"
-//           className="form__file"
-//           accept="image/png, image/gif, image/jpeg"
-//         />
-//       </div>
-//       <button
-//         type="submit"
-//         className="submit__button"
-//         onSubmit={() =>
-//           addCard({
-//             name,
-//             birthday,
-//             country,
-//             vehicle,
-//             gender,
-//             // photo,
-//           })
-//         }
-//       >
-//         Submit
-//       </button>
-//     </form>
-//   );
-// }
