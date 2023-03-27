@@ -17,12 +17,8 @@
     "jsx": "react-jsx",
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
-
   },
-  "include": [
-    "vite.config.ts",
-    ".eslintrc.cjs",
-    "src",
-    "coverage"],
+  "include": ["src",
+"vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

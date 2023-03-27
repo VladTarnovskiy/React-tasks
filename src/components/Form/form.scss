@@ -145,3 +145,23 @@
 .form__saved.active {
     display: flex;
 }
+
+//validation 
+input:invalid {
+    border: 1px solid red;
+    appearance: none;
+}
+
+input:valid {
+    border: 1px solid black;
+}
+
+input[type=radio]:invalid {
+    appearance: none;
+    border-radius: 50%;
+    border: 1px solid #FF5722;
+}
+
+input[type=file]:invalid {
+    box-shadow: 0 0 0 1px #FF5722;
+}
