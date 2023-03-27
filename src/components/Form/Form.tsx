@@ -1,7 +1,7 @@
 import './form.scss';
-import React from 'react';
+import React, { RefObject } from 'react';
 import { FormCardType } from '../../types/types';
-import Logo from '../../assets/star.png';
+import Header from '../Header/Header';
 
 interface MyProps {
   addCard: (card: FormCardType) => void;
@@ -9,6 +9,10 @@ interface MyProps {
 
 class Form extends React.Component<MyProps, FormCardType> {
   stateForm: FormCardType;
+
+  formRef: RefObject<HTMLFormElement>;
+
+  formMessageRef: RefObject<HTMLDivElement>;
 
   constructor(props: MyProps) {
     super(props);
@@ -24,58 +28,40 @@ class Form extends React.Component<MyProps, FormCardType> {
       },
       gender: '',
       photo: '',
+      rules: false,
     };
 
-    // this.handleInputChange = this.handleInputChange.bind(this);
     this.onChangeX = this.onChangeX.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+
+    this.formRef = React.createRef<HTMLFormElement>();
+    this.formMessageRef = React.createRef<HTMLDivElement>();
   }
 
-  // handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { target } = event;
-  //   const value = target.type === 'checkbox' ? target.checked : target.value;
-  //   const { name } = target;
-
-  //   this.setState({
-  //     [name as Pick<FormCardType, keyof FormCardType>]: value,
-  //   });
-  // };
-
-  onChangeX = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  onChangeX(e: React.ChangeEvent<HTMLInputElement>) {
     const fileObj = e.target.files;
     // const fileObj = this.fileRef.current ? this.fileRef.current.files : '';
     const file = fileObj ? window.URL.createObjectURL(fileObj[0]) : '';
-    // URL.revokeObjectURL(file);
-    // const file = e.target.files![0];
-    // const formData = new FormData();
-
-    // formData.append('file', file);
-    // console.log(formData);
-
-    // const res = await fetch('assets/img', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Access-Control-Allow-Origin': '*',
-    //   },
-    //   body: formData,
-    // });
-
-    console.log(file); // const filesArr = Array.prototype.slice.call(files);
-    // console.log(filesArr);
-    // this.stateForm.photo = files[0];
-    // const file = files ? window.URL.createObjectURL(files[0]) : '';
     this.stateForm.photo = file;
-  };
+  }
+
+  submitForm(e: React.ChangeEvent<HTMLFormElement>) {
+    const { addCard } = this.props;
+    addCard(this.stateForm);
+    this.formMessageRef.current?.classList.add('active');
+    this.formRef.current?.reset();
+    setTimeout(() => {
+      this.formMessageRef.current?.classList.remove('active');
+    }, 2000);
+    e.preventDefault();
+  }
 
   render() {
-    const { addCard } = this.props;
     return (
-      <form
-        className="form"
-        name="PersonalDataForm"
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
+      <form className="form" name="PersonalDataForm" ref={this.formRef} onSubmit={this.submitForm}>
+        <div className="form__saved" ref={this.formMessageRef}>
+          <div className="form__saved-message">Data saved!</div>
+        </div>
         <div className="form__title">Personal data</div>
         <div className="input__item">
           <div className="input__item-title">Name:</div>
@@ -84,6 +70,7 @@ class Form extends React.Component<MyProps, FormCardType> {
             placeholder="Enter name"
             className="form__name"
             name="name"
+            pattern="[A-Z][a-z]*"
             onChange={(e) => {
               this.stateForm.name = e.target.value;
             }}
@@ -108,6 +95,7 @@ class Form extends React.Component<MyProps, FormCardType> {
           <select
             name="country"
             className="form__country"
+            required
             onChange={(e) => {
               this.stateForm.country = e.target.value;
             }}
@@ -167,6 +155,7 @@ class Form extends React.Component<MyProps, FormCardType> {
                 id="male"
                 name="gender"
                 value="male"
+                required
                 onChange={(e) => {
                   this.stateForm.gender = e.target.value;
                 }}
@@ -179,6 +168,7 @@ class Form extends React.Component<MyProps, FormCardType> {
                 id="female"
                 name="gender"
                 value="female"
+                required
                 onChange={(e) => {
                   this.stateForm.gender = e.target.value;
                 }}
@@ -194,12 +184,28 @@ class Form extends React.Component<MyProps, FormCardType> {
             placeholder="Choose file"
             className="form__file"
             accept="image/*"
+            required
             onChange={(e) => {
               this.onChangeX(e);
             }}
           />
         </div>
-        <button type="submit" className="submit__button" onClick={() => addCard(this.stateForm)}>
+        <div className="input__item">
+          <label htmlFor="rules">
+            <input
+              type="checkbox"
+              id="motorcycle"
+              name="rules"
+              value="motorcycle"
+              required
+              onChange={(e) => {
+                this.stateForm.vehicle.motorcycle = e.target.checked;
+              }}
+            />{' '}
+            I agree to the processing of personal data
+          </label>
+        </div>
+        <button type="submit" className="submit__button">
           Submit
         </button>
       </form>

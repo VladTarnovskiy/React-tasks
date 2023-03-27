@@ -6,6 +6,7 @@ export interface FormCardType {
   vehicle: Vehicle;
   gender: string;
   photo?: string;
+  rules?: boolean;
 }
 
 export interface Vehicle {
