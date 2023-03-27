@@ -157,13 +157,7 @@ class Form extends React.Component<MyProps> {
 
   render() {
     return (
-      <form
-        className="form"
-        name="PersonalDataForm"
-        ref={this.formRef}
-        onSubmit={this.submitForm}
-        onChange={this.checkValidity}
-      >
+      <form className="form" name="PersonalDataForm" ref={this.formRef} onSubmit={this.submitForm}>
         <div className="form__saved" ref={this.formMessageRef}>
           <div className="form__saved-message">Data saved!</div>
         </div>
