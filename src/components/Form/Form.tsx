@@ -31,11 +31,24 @@ class Form extends React.Component<MyProps> {
 
   private rulesRef = React.createRef<HTMLInputElement>();
 
+  private nameRefMessage = React.createRef<HTMLDivElement>();
+
+  private birthdayRefMessage = React.createRef<HTMLDivElement>();
+
+  private countryRefMessage = React.createRef<HTMLDivElement>();
+
+  private genderRefMessage = React.createRef<HTMLDivElement>();
+
+  private fileRefMessage = React.createRef<HTMLDivElement>();
+
+  private rulesRefMessage = React.createRef<HTMLDivElement>();
+
   constructor(props: MyProps) {
     super(props);
 
     this.getFileLink = this.getFileLink.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.checkValidity = this.checkValidity.bind(this);
   }
 
   getFileLink(fileObj: FileList) {
@@ -90,9 +103,67 @@ class Form extends React.Component<MyProps> {
     }, 3000);
   }
 
+  checkValidity() {
+    const nameRef = this.nameRef.current;
+
+    const birthdayRef = this.birthdayRef.current;
+
+    const countryRef = this.countryRef.current;
+
+    const maleRef = this.maleRef.current;
+
+    const femaleRef = this.femaleRef.current;
+
+    const fileRef = this.fileRef.current;
+
+    const rulesRef = this.rulesRef.current;
+
+    if (nameRef!.validity.valid === false) {
+      this.nameRefMessage.current?.classList.add('active');
+    } else {
+      this.nameRefMessage.current?.classList.remove('active');
+    }
+
+    if (birthdayRef!.validity.valid === false) {
+      this.birthdayRefMessage.current?.classList.add('active');
+    } else {
+      this.birthdayRefMessage.current?.classList.remove('active');
+    }
+
+    if (countryRef!.validity.valid === false) {
+      this.countryRefMessage.current?.classList.add('active');
+    } else {
+      this.countryRefMessage.current?.classList.remove('active');
+    }
+
+    if (maleRef!.validity.valid === false && femaleRef!.validity.valid === false) {
+      this.genderRefMessage.current?.classList.add('active');
+    } else {
+      this.genderRefMessage.current?.classList.remove('active');
+    }
+
+    if (fileRef!.validity.valid === false) {
+      this.fileRefMessage.current?.classList.add('active');
+    } else {
+      this.fileRefMessage.current?.classList.remove('active');
+    }
+
+    if (rulesRef!.checked === false) {
+      this.rulesRefMessage.current?.classList.add('active');
+    } else {
+      this.rulesRefMessage.current?.classList.remove('active');
+    }
+  }
+
   render() {
     return (
-      <form className="form" name="PersonalDataForm" ref={this.formRef} onSubmit={this.submitForm}>
+      <form
+        className="form"
+        name="PersonalDataForm"
+        ref={this.formRef}
+        onSubmit={this.submitForm}
+        onChange={this.checkValidity}
+      >
         <div className="form__saved" ref={this.formMessageRef}>
           <div className="form__saved-message">Data saved!</div>
         </div>
@@ -106,8 +177,12 @@ class Form extends React.Component<MyProps> {
             name="name"
             ref={this.nameRef}
             pattern="[A-Z][a-z]*"
+            minLength={3}
             required
           />
+        </div>
+        <div className="form__error" ref={this.nameRefMessage}>
+          The first name should start from capital letter, min length 3
         </div>
         <div className="input__item">
           <div className="input__item-title">Birthday:</div>
@@ -120,6 +195,9 @@ class Form extends React.Component<MyProps> {
             required
           />
         </div>
+        <div className="form__error" ref={this.birthdayRefMessage}>
+          Enter your birthday
+        </div>
         <div className="input__item">
           <div className="input__item-title">Country:</div>
           <select name="country" className="form__country" required ref={this.countryRef}>
@@ -127,6 +205,9 @@ class Form extends React.Component<MyProps> {
             <option value="Germany">Germany</option>
             <option value="USA">USA</option>
           </select>
+        </div>
+        <div className="form__error" ref={this.countryRefMessage}>
+          Choose your country
         </div>
         <div className="input__item">
           <span className="input__item-title">Vehicle:</span>
@@ -177,6 +258,9 @@ class Form extends React.Component<MyProps> {
             </label>
           </div>
         </div>
+        <div className="form__error" ref={this.genderRefMessage}>
+          Choose gender
+        </div>
         <div className="input__item">
           <span className="input__item-title">Your photo:</span>
           <input
@@ -188,13 +272,26 @@ class Form extends React.Component<MyProps> {
             ref={this.fileRef}
           />
         </div>
+        <div className="form__error" ref={this.fileRefMessage}>
+          Choose your photo
+        </div>
         <div className="input__item">
           <label htmlFor="rules">
-            <input type="checkbox" id="motorcycle" name="rules" value="motorcycle" required /> I
-            agree to the processing of personal data
+            <input
+              type="checkbox"
+              id="rules"
+              name="rules"
+              value="motorcycle"
+              required
+              ref={this.rulesRef}
+            />{' '}
+            I agree to the processing of personal data
           </label>
         </div>
-        <button type="submit" className="submit__button">
+        <div className="form__error" ref={this.rulesRefMessage}>
+          To continue agree to the processing of your data
+        </div>
+        <button type="submit" className="submit__button" onClick={this.checkValidity}>
           Submit
         </button>
       </form>

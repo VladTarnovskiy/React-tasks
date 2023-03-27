@@ -146,6 +146,10 @@
     display: flex;
 }
 
+.form__saved-message {
+    font-family: "Roboto Light", sans-serif;
+}
+
 //validation 
 input:invalid {
     border: 1px solid red;
@@ -164,4 +168,18 @@ input[type=radio]:invalid {
 
 input[type=file]:invalid {
     box-shadow: 0 0 0 1px #FF5722;
+}
+
+.form__error {
+    font-family: "Roboto Light", sans-serif;
+    display: none;
+    color: red;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.form__error.active {
+    display: block;
 }
