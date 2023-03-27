@@ -13,10 +13,6 @@ interface MyProps {
     brand: string;
     category: string;
     thumbnail: string;
-    images?: string[];
-    amount?: number;
-    totalPrice?: number;
-    inBasket?: boolean;
   };
 }
 
