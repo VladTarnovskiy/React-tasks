@@ -1,26 +1,26 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import Card from './HomeCard';
+import HomeCard from './HomeCard';
 
 describe('Card Component', () => {
   const props = {
-    title: 'iPhone 9',
-    thumbnail: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-    category: 'smartphones',
-    brand: 'Apple',
-    price: 549,
-    discountPercentage: 12.96,
-    rating: 4.69,
-    stock: 94,
-    key: 1,
-    id: 1,
+    card: {
+      id: 1,
+      title: 'iPhone 9',
+      description: 'It card',
+      price: 549,
+      discountPercentage: 12.96,
+      rating: 4.69,
+      stock: 94,
+      brand: 'Apple',
+      category: 'smartphones',
+      thumbnail: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
+    },
   };
 
   test('renders card Apple', () => {
     it('Renders hello world', () => {
-      render(<Card {...props} />, { wrapper: MemoryRouter });
+      render(<HomeCard {...props} />);
       expect(
         screen.getByRole('heading', {
           level: 1,
