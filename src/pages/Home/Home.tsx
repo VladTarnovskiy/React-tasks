@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import productData from '../../data';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
@@ -25,22 +25,29 @@ interface MyState {
   productsData: Products[];
 }
 
-class Home extends React.Component<MyProps, MyState> {
-  constructor(props: MyProps) {
-    super(props);
-    this.state = {
-      productsData: productData.products,
-    };
+const Home: React.FC<MyProps> = (props) => {
+  // constructor(props: MyProps) {
+  //   super(props);
+  //   this.state = {
+  //     productsData: productData.products,
+  //   };
 
-    this.searchProducts = this.searchProducts.bind(this);
-  }
+  //   this.searchProducts = this.searchProducts.bind(this);
+  // }
 
-  componentDidMount() {
-    const { changeTitle } = this.props;
+  const [productsData, setProductsData] = useState(productData.products);
+
+  useEffect(() => {
+    const { changeTitle } = props;
     changeTitle();
-  }
+  }, []);
 
-  searchProducts(value: string) {
+  // componentDidMount() {
+  //   const { changeTitle } = this.props;
+  //   changeTitle();
+  // }
+
+  const searchProducts = (value: string) => {
     const arrSearch: Products[] = [];
     const data = Array.from(productData.products);
     data.forEach((item) => {
@@ -58,21 +65,21 @@ class Home extends React.Component<MyProps, MyState> {
         arrSearch.push(item);
       }
     });
-    this.setState({ productsData: arrSearch });
-  }
+    setProductsData(arrSearch);
+  };
 
-  render() {
-    const { productsData } = this.state;
-    const cards = productsData.map((el) => {
-      return <HomeCard card={el} key={el.id} />;
-    });
-    return (
-      <div>
-        <SearchBar onSearch={this.searchProducts} />
-        <div className="product-items">{cards}</div>
-      </div>
-    );
-  }
-}
+  // render() {
+  // const { productsData } = this.state;
+  const cards = productsData.map((el) => {
+    return <HomeCard card={el} key={el.id} />;
+  });
+  return (
+    <div>
+      <SearchBar onSearch={searchProducts} />
+      <div className="product-items">{cards}</div>
+    </div>
+  );
+  // }
+};
 
 export default Home;
