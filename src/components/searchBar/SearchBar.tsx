@@ -11,18 +11,7 @@ interface MyProps {
 }
 
 // const HomeCard: React.FC<MyProps> = (props) => {
-const SearchBar: React.FC<MyProps> = (props) => {
-  // constructor(props: MyProps) {
-  //   super(props);
-
-  //   this.state = {
-  //     value: '',
-  //   };
-
-  //   this.handleChange = this.handleChange.bind(this);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  //   this.onKeyPressHandler = this.onKeyPressHandler.bind(this);
-  // }
+function SearchBar(props: MyProps): JSX.Element {
   const [value, setValue] = useState('');
   // const [searchValue, setSearchValue] = useState('');
 
@@ -106,7 +95,6 @@ const SearchBar: React.FC<MyProps> = (props) => {
       </button>
     </form>
   );
-  // }
-};
+}
 
 export default SearchBar;

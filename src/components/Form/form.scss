@@ -172,7 +172,7 @@ input[type=file]:invalid {
 
 .form__error {
     font-family: "Roboto Light", sans-serif;
-    display: none;
+    display: block;
     color: red;
     text-align: center;
     margin-top: -10px;
@@ -180,6 +180,6 @@ input[type=file]:invalid {
     font-size: 1.2rem;
 }
 
-.form__error.active {
-    display: block;
-}
+// .form__error.active {
+//     display: block;
+// }

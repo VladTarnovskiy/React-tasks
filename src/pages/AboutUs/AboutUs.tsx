@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import './about-us.scss';
 
 interface MyProps {
   changeTitle: () => void;
 }
 
-class AboutUs extends React.Component<MyProps> {
-  componentDidMount() {
-    const { changeTitle } = this.props;
-    changeTitle();
-  }
+function AboutUs(props: MyProps): JSX.Element {
+  const { changeTitle } = props;
 
-  render() {
-    return (
-      <div>
-        <div className="about__us">We are technical market.</div>
-      </div>
-    );
-  }
+  useLayoutEffect(() => {
+    changeTitle();
+  });
+
+  return (
+    <div>
+      <div className="about__us">We are technical market.</div>
+    </div>
+  );
 }
 
 export default AboutUs;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import productData from '../../data';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
@@ -20,32 +20,13 @@ interface Products {
   thumbnail: string;
   images: string[];
 }
-
-interface MyState {
-  productsData: Products[];
-}
-
-const Home: React.FC<MyProps> = (props) => {
-  // constructor(props: MyProps) {
-  //   super(props);
-  //   this.state = {
-  //     productsData: productData.products,
-  //   };
-
-  //   this.searchProducts = this.searchProducts.bind(this);
-  // }
-
+function Home(props: MyProps): JSX.Element {
   const [productsData, setProductsData] = useState(productData.products);
+  const { changeTitle } = props;
 
-  useEffect(() => {
-    const { changeTitle } = props;
+  useLayoutEffect(() => {
     changeTitle();
-  }, []);
-
-  // componentDidMount() {
-  //   const { changeTitle } = this.props;
-  //   changeTitle();
-  // }
+  });
 
   const searchProducts = (value: string) => {
     const arrSearch: Products[] = [];
@@ -68,8 +49,6 @@ const Home: React.FC<MyProps> = (props) => {
     setProductsData(arrSearch);
   };
 
-  // render() {
-  // const { productsData } = this.state;
   const cards = productsData.map((el) => {
     return <HomeCard card={el} key={el.id} />;
   });
@@ -79,7 +58,6 @@ const Home: React.FC<MyProps> = (props) => {
       <div className="product-items">{cards}</div>
     </div>
   );
-  // }
-};
+}
 
 export default Home;

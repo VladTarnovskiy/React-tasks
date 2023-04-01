@@ -16,8 +16,7 @@ interface MyProps {
   };
 }
 
-const HomeCard: React.FC<MyProps> = (props) => {
-  const { card } = props;
+function HomeCard({ card }: MyProps): JSX.Element {
   const { title, thumbnail, category, brand, price, discountPercentage, rating, stock } = card;
   return (
     <div
@@ -59,6 +58,6 @@ const HomeCard: React.FC<MyProps> = (props) => {
       </ul>
     </div>
   );
-};
+}
 
 export default HomeCard;

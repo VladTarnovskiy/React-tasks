@@ -1,53 +1,34 @@
 import './formPage.scss';
-import React from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import Form from '../../components/Form/Form';
 import { FormCardType } from '../../types/types';
 import FormCard from '../../components/FormCard/FormCard';
 
-interface MyState {
-  cardsData: Array<FormCardType>;
-}
-
 interface MyProps {
   changeTitle: () => void;
 }
+function FormPage(props: MyProps): JSX.Element {
+  const { changeTitle } = props;
 
-class FormPage extends React.Component<MyProps, MyState> {
-  constructor(props: MyProps) {
-    super(props);
-
-    this.state = {
-      cardsData: [],
-    };
-
-    this.addCard = this.addCard.bind(this);
-  }
-
-  componentDidMount() {
-    const { changeTitle } = this.props;
+  useLayoutEffect(() => {
     changeTitle();
-  }
+  });
 
-  addCard(card: FormCardType) {
-    const { cardsData } = this.state;
+  const [cardsData, setCardsData] = useState(Array<FormCardType>);
+  const addCard = (card: FormCardType) => {
     const id = cardsData.length + 1;
-    this.setState((prevState) => {
-      return { cardsData: [...prevState.cardsData, { id, ...card }] };
-    });
-  }
+    setCardsData([...cardsData, { id, ...card }]);
+  };
 
-  render() {
-    const { cardsData } = this.state;
-    const cards = cardsData.map((el) => {
-      return <FormCard card={el} key={el.id} />;
-    });
-    return (
-      <div>
-        <Form addCard={this.addCard} />
-        <div className="form-items">{cards}</div>
-      </div>
-    );
-  }
+  const cards = cardsData.map((el) => {
+    return <FormCard card={el} key={el.id} />;
+  });
+  return (
+    <div>
+      <Form addCard={addCard} />
+      <div className="form-items">{cards}</div>
+    </div>
+  );
 }
 
 export default FormPage;
