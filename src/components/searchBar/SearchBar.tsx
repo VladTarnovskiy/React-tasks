@@ -44,7 +44,6 @@ function SearchBar(props: MyProps): JSX.Element {
         e.preventDefault();
       }}
     >
-      <span style={{ display: 'hidden' }}>Test</span>
       <input
         type="search"
         placeholder="Enter text"
