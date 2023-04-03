@@ -1,17 +1,6 @@
-import React, { useLayoutEffect } from 'react';
 import './notFound.scss';
 
-interface MyProps {
-  changeTitle: () => void;
-}
-
-function NotFound(props: MyProps): JSX.Element {
-  const { changeTitle } = props;
-
-  useLayoutEffect(() => {
-    changeTitle();
-  });
-
+function NotFound(): JSX.Element {
   return (
     <div className="error_wrapper">
       <div className="error_code">404</div>

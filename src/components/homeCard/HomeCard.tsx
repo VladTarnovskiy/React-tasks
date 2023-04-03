@@ -1,5 +1,4 @@
 import './homeCard.scss';
-import React from 'react';
 
 interface MyProps {
   card: {

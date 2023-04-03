@@ -1,21 +1,34 @@
 import { describe } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
 
 describe('Header text', () => {
   test('Home', () => {
-    render(<Header title="Home" />);
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <Header />
+      </MemoryRouter>
+    );
     const homeElement = screen.getByText('Home');
     expect(homeElement).toBeInTheDocument();
   });
   test('About Us', () => {
-    render(<Header title="About Us" />);
-    const aboutElement = screen.getByText('About Us');
-    expect(aboutElement).toBeInTheDocument();
+    render(
+      <MemoryRouter initialEntries={['/about-us']}>
+        <Header />
+      </MemoryRouter>
+    );
+    const homeElement = screen.getByText('About Us');
+    expect(homeElement).toBeInTheDocument();
   });
-  test('Not Found', () => {
-    render(<Header title="Not Found" />);
-    const notFound = screen.getByText('Not Found');
-    expect(notFound).toBeInTheDocument();
+  test('Home', () => {
+    render(
+      <MemoryRouter initialEntries={['/form']}>
+        <Header />
+      </MemoryRouter>
+    );
+    const homeElement = screen.getByText('Forms');
+    expect(homeElement).toBeInTheDocument();
   });
 });

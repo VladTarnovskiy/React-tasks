@@ -1,11 +1,7 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import productData from '../../data';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
-
-interface MyProps {
-  changeTitle: () => void;
-}
 
 interface Products {
   id: number;
@@ -20,13 +16,8 @@ interface Products {
   thumbnail: string;
   images: string[];
 }
-function Home(props: MyProps): JSX.Element {
+function Home(): JSX.Element {
   const [productsData, setProductsData] = useState(productData.products);
-  const { changeTitle } = props;
-
-  useLayoutEffect(() => {
-    changeTitle();
-  });
 
   const searchProducts = (value: string) => {
     const arrSearch: Products[] = [];

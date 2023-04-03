@@ -1,19 +1,10 @@
 import './formPage.scss';
-import React, { useState, useLayoutEffect } from 'react';
+import { useState } from 'react';
 import Form from '../../components/Form/Form';
 import { CardData } from '../../types/types';
 import FormCard from '../../components/FormCard/FormCard';
 
-interface MyProps {
-  changeTitle: () => void;
-}
-function FormPage(props: MyProps): JSX.Element {
-  const { changeTitle } = props;
-
-  useLayoutEffect(() => {
-    changeTitle();
-  });
-
+function FormPage(): JSX.Element {
   const [cardsData, setCardsData] = useState(Array<CardData>);
   const addCard = (card: CardData) => {
     const id = cardsData.length + 1;
