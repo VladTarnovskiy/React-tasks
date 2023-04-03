@@ -1,23 +1,12 @@
 import './formCard.scss';
 import React from 'react';
-import { FormCardType, Vehicle } from '../../types/types';
+import { CardData } from '../../types/types';
 
 interface MyProps {
-  card: FormCardType;
+  card: CardData;
 }
 
 function FormCard(props: MyProps): JSX.Element {
-  function getCheckboxes(value: Vehicle): string {
-    const keys = Object.keys(value);
-    let content = '';
-    keys.forEach((el) => {
-      if (value[el as keyof typeof value] === true) {
-        content += `${el}, `;
-      }
-    });
-    return content.slice(0, -2);
-  }
-
   const { card } = props;
   const { name, birthday, country, vehicle, gender, photo } = card;
 
@@ -39,7 +28,7 @@ function FormCard(props: MyProps): JSX.Element {
           Country: <span className="card__value">{country}</span>
         </li>
         <li className="card__property">
-          Vehicle: <span className="card__value">{getCheckboxes(vehicle)}</span>
+          Vehicle: <span className="card__value">{vehicle.join(', ')}</span>
         </li>
         <li className="card__property">
           Gender: <span className="card__value">{gender}</span>

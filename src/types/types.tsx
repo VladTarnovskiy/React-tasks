@@ -1,16 +1,21 @@
-export interface FormCardType {
+export interface CardData {
   id?: number;
   name: string;
   birthday: string;
   country: string;
-  vehicle: Vehicle;
+  vehicle: string[];
   gender: string;
-  photo?: string;
+  photo: string;
   rules?: boolean;
 }
 
-export interface Vehicle {
-  car: boolean;
-  motorcycle: boolean;
-  bike: boolean;
+export interface FormData {
+  id?: number;
+  name: string;
+  birthday: string;
+  country: string;
+  vehicle: string[];
+  gender: string;
+  photo: FileList;
+  rules?: boolean;
 }
