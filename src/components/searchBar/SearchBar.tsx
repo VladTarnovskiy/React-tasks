@@ -38,12 +38,7 @@ function SearchBar(props: MyProps): JSX.Element {
   }
 
   return (
-    <div
-      className="search"
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
+    <div className="search">
       <input
         type="search"
         placeholder="Enter text"
@@ -51,8 +46,14 @@ function SearchBar(props: MyProps): JSX.Element {
         onChange={handleChange}
         onKeyDown={onKeyPressHandler}
         value={searchValue}
+        data-testid="input-search"
       />
-      <button type="button" className="search__button" onClick={handleSubmit}>
+      <button
+        type="button"
+        className="search__button"
+        onClick={handleSubmit}
+        data-testid="submit-search"
+      >
         <img src={Search} alt="Search" />
       </button>
     </div>

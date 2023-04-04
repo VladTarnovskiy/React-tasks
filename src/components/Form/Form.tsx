@@ -47,7 +47,7 @@ function Form(props: MyProps): JSX.Element {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={handleSubmit(onSubmit)} data-testid="form">
       <div className="form__saved" ref={formMessageRef}>
         <div className="form__saved-message">Data saved!</div>
       </div>
@@ -58,6 +58,7 @@ function Form(props: MyProps): JSX.Element {
           type="text"
           placeholder="Enter name"
           className="form__name"
+          data-testid="input-name"
           {...register('name', {
             required: 'Please enter name!',
             minLength: {
@@ -82,6 +83,7 @@ function Form(props: MyProps): JSX.Element {
           type="date"
           placeholder="Enter date"
           className="form__date"
+          data-testid="input-date"
           {...register('birthday', {
             required: 'Enter your birthday!',
             max: {
@@ -99,6 +101,7 @@ function Form(props: MyProps): JSX.Element {
           {...register('country', {
             required: 'Choose country!',
           })}
+          data-testid="input-country"
         >
           <option value="Belarus">Belarus</option>
           <option value="Germany">Germany</option>
@@ -110,7 +113,14 @@ function Form(props: MyProps): JSX.Element {
         <span className="input__item-title">Vehicle:</span>
         <div className="form__vehicle">
           <label htmlFor="car">
-            <input type="checkbox" id="car" value="car" {...register('vehicle')} /> Car
+            <input
+              type="checkbox"
+              id="car"
+              value="car"
+              {...register('vehicle')}
+              data-testid="input-vehicle"
+            />{' '}
+            Car
           </label>
           <label htmlFor="motorcycle">
             <input type="checkbox" id="motorcycle" value="motorcycle" {...register('vehicle')} />{' '}
@@ -132,6 +142,7 @@ function Form(props: MyProps): JSX.Element {
               {...register('gender', {
                 required: 'Choose gender!',
               })}
+              data-testid="input-gender"
             />{' '}
             male
           </label>
@@ -159,6 +170,7 @@ function Form(props: MyProps): JSX.Element {
           {...register('photo', {
             required: 'Choose your photo!',
           })}
+          data-testid="input-file"
         />
       </div>
       {errors.photo && <div className="form__error">{errors.photo.message}</div>}
@@ -167,7 +179,8 @@ function Form(props: MyProps): JSX.Element {
           <input
             type="checkbox"
             id="rules"
-            value="motorcycle"
+            value="rule"
+            data-testid="input-rule"
             {...register('rules', {
               required: 'To continue agree to the processing of your data!',
             })}
@@ -176,7 +189,7 @@ function Form(props: MyProps): JSX.Element {
         </label>
       </div>
       {errors.rules && <div className="form__error">{errors.rules.message}</div>}
-      <button type="submit" className="submit__button" value="Submit">
+      <button type="submit" className="submit__button" value="Submit" data-testid="submit">
         Submit
       </button>
     </form>

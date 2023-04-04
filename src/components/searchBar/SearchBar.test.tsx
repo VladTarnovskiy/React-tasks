@@ -5,7 +5,8 @@ import SearchBar from './SearchBar';
 
 describe('Search bar', () => {
   const x = (test: string): void => {
-    throw new Error(test);
+    // eslint-disable-next-line no-console
+    console.log(test);
   };
   test('render SearchBar', () => {
     render(<SearchBar onSearch={x} />);
@@ -19,5 +20,19 @@ describe('Search bar', () => {
     const input = screen.getByPlaceholderText('Enter text');
     await userEvent.type(input, 'here');
     expect(input).toHaveValue('here');
+  });
+
+  test('click submit search bar', async () => {
+    render(<SearchBar onSearch={x} />);
+
+    await userEvent.click(screen.getByTestId('submit-search'));
+    expect(localStorage.getItem('searchValue')).toBe('here');
+  });
+  test('keyboard submit search bar', async () => {
+    render(<SearchBar onSearch={x} />);
+
+    const input = screen.getByPlaceholderText('Enter text');
+    await userEvent.type(input, '{enter}');
+    expect(localStorage.getItem('searchValue')).toBe('here');
   });
 });
