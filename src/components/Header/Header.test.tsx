@@ -31,4 +31,13 @@ describe('Header text', () => {
     const homeElement = screen.getByText('Forms');
     expect(homeElement).toBeInTheDocument();
   });
+  test('Not found', () => {
+    render(
+      <MemoryRouter initialEntries={['/random']}>
+        <Header />
+      </MemoryRouter>
+    );
+    const homeElement = screen.getByText('Not Found');
+    expect(homeElement).toBeInTheDocument();
+  });
 });
