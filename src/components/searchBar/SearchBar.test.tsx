@@ -1,6 +1,6 @@
 import { describe } from 'vitest';
 import { render, screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import SearchBar from './SearchBar';
 
 describe('Search bar', () => {
@@ -14,10 +14,10 @@ describe('Search bar', () => {
     expect(searchBar).toBeInTheDocument();
   });
 
-  // test('should update the input value on change', async () => {
-  //   render(<SearchBar onSearch={x} />);
-  //   const input = screen.getByPlaceholderText('Enter text');
-  //   await userEvent.type(input, 'here');
-  //   expect(input).toHaveValue('here');
-  // });
+  test('should update the input value on change', async () => {
+    render(<SearchBar onSearch={x} />);
+    const input = screen.getByPlaceholderText('Enter text');
+    await userEvent.type(input, 'here');
+    expect(input).toHaveValue('here');
+  });
 });
