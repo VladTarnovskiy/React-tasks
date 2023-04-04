@@ -123,14 +123,35 @@ function Form(props: MyProps): JSX.Element {
             Car
           </label>
           <label htmlFor="motorcycle">
-            <input type="checkbox" id="motorcycle" value="motorcycle" {...register('vehicle')} />{' '}
+            <input
+              type="checkbox"
+              id="motorcycle"
+              value="motorcycle"
+              {...register('vehicle', { required: 'Choose vehicle!' })}
+            />{' '}
             Motorcycle
           </label>
           <label htmlFor="bike">
-            <input type="checkbox" id="bike" value="bike" {...register('vehicle')} /> Bike
+            <input
+              type="checkbox"
+              id="bike"
+              value="bike"
+              {...register('vehicle', { required: 'Choose vehicle!' })}
+            />{' '}
+            Bike
+          </label>
+          <label htmlFor="bike">
+            <input
+              type="checkbox"
+              id="bike"
+              value="bike"
+              {...register('vehicle', { required: 'Choose vehicle!' })}
+            />{' '}
+            Not
           </label>
         </div>
       </div>
+      {errors.vehicle && <div className="form__error">{errors.vehicle.message}</div>}
       <div className="input__item">
         <span className="input__item-title">Gender:</span>
         <div className="form__gender">
