@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('./assets/fonts/roboto-bold-webfont.woff') format('woff2'),
+        url('./assets/fonts/roboto-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto Light';
+    src: url('./assets/fonts/roboto-light-webfont.woff2') format('woff2'),
+        url('./assets/fonts/roboto-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url('./assets/fonts/roboto-medium-webfont.woff2') format('woff2'),
+        url('./assets/fonts/roboto-medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url('./assets/fonts/roboto-regular-webfont.woff2') format('woff2'),
+        url('./assets/fonts/roboto-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Thin';
+    src: url('./assets/fonts/Roboto-Thin.woff2') format('woff2'),
+        url('./assets/fonts/Roboto-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: normal;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    font-family: "Roboto Light", sans-serif;
+
+    .nav__item {
+        color: rgba(25, 25, 29, 0.8);
+        text-decoration: none;
+        cursor: pointer;
+        margin-right: 20px;
+        margin-left: 5px;
+
+        &:hover {
+            color: rgb(132, 132, 223);
+            text-decoration: underline;
+        }
+    }
+}
