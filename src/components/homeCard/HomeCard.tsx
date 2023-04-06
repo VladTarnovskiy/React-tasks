@@ -1,58 +1,79 @@
 import './homeCard.scss';
 
+interface Tag {
+  type: string;
+  title: string;
+}
+
 interface MyProps {
   card: {
     id: number;
-    title: string;
-    description?: string;
-    price: number;
-    discountPercentage: number;
-    rating: number;
-    stock: number;
-    brand: string;
-    category: string;
-    thumbnail: string;
+    alt_description: string;
+    description: string;
+    created_at: string;
+    height: number;
+    weight: number;
+    likes: number;
+    urls: {
+      small: string;
+    };
+    user: {
+      name: string;
+    };
+    tags: Tag[];
   };
 }
 
 function HomeCard({ card }: MyProps): JSX.Element {
-  const { title, thumbnail, category, brand, price, discountPercentage, rating, stock } = card;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const { likes, description, alt_description, created_at, height, weight, urls, user, tags } =
+    card;
+  const { small } = urls;
+  const { name } = user;
+  const event = new Date(created_at);
+
+
   return (
     <div
       className="card"
       style={{
-        backgroundImage: `url(${thumbnail})`,
+        backgroundImage: `url(${small})`,
       }}
     >
       <div className="card__title">
-        <div>{title}</div>
+        <div>{description === null ? 'No title' : description}</div>
       </div>
       <ul className="card__description">
         <li className="card__property">
-          Category: <span className="card__value card__value_category">{category}</span>
+          Created at: <span className="card__value card__value_category">{event.toLocaleString()}</span>
         </li>
         <li className="card__property">
-          Brand: <span className="card__value card__value_brand">{brand}</span>
+          Likes: <span className="card__value card__value_brand">{likes}</span>
         </li>
-        <li className="card__property">
+        {/* <li className="card__property">
           Price:{' '}
           <span className="card__value card__value_price">
-            {price}
+            {created_at}
             <span> $</span>
           </span>
-        </li>
+        </li> */}
         <li className="card__property">
-          Discount: <span className="card__value card__value_discount">{discountPercentage} %</span>
+          Name: <span className="card__value card__value_discount">{name}</span>
         </li>
-        <li className="card__property">
+        {/* <li className="card__property">
           Rating:{' '}
           <span className="card__value card__value_rating">
-            {rating}
+            {weight}
             <div className="card__rate-icon" />
           </span>
-        </li>
+        </li> */}
         <li className="card__property">
-          Stock: <span className="card__value card__value_stock">{stock}</span>
+          Tags:{' '}
+          <span className="card__value card__value_stock">
+            {tags.reduce((sum, item) => {
+              return `${sum} ${item.title},`;
+            }, '')}
+          </span>
         </li>
       </ul>
     </div>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Search from '../../assets/search.png';
 
 interface MyProps {
-  onSearch: (value: string) => void;
+  onSetSearchValue: (value: string) => void;
 }
 
 function SearchBar(props: MyProps): JSX.Element {
@@ -27,8 +27,8 @@ function SearchBar(props: MyProps): JSX.Element {
   }
 
   function handleSubmit() {
-    const { onSearch } = props;
-    onSearch(searchValue);
+    const { onSetSearchValue } = props;
+    onSetSearchValue(searchValue);
   }
 
   function onKeyPressHandler(event: React.KeyboardEvent<HTMLInputElement>) {
