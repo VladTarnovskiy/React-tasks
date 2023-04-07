@@ -14,7 +14,7 @@ interface PhotoCard {
   description: string;
   created_at: string;
   height: number;
-  weight: number;
+  width: number;
   likes: number;
   urls: {
     small: string;

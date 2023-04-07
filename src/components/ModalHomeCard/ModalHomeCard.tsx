@@ -1,84 +1,94 @@
+import ReactDOM from 'react-dom';
 import './modalHomeCard.scss';
 
-// interface MyProps {
-//   card: {
-//     id: number;
-//     alt_description: string;
-//     created_at: string;
-//     height: number;
-//     weight: number;
-//     urls: {
-//       regular: string;
-//     };
-//   };
-// }
+interface Tag {
+  type: string;
+  title: string;
+}
 
-function ModalHomeCard({ card }: MyProps): JSX.Element {
-  const { alt_description, created_at, height, weight, urls } = card;
-  const { regular } = urls;
-  return (
-    <div className="prod">
-      <div className="prod__title">iPhone X</div>
-      <div className="prod__descript-container">
-        <div className="prod__img-container">
-          <button type="button" className="prod__img-but prod__img-but_left">
-            &lt;
-          </button>
-          <div className="prod__img-display">
-            <img
-              className="prod__img-item"
-              src="https://i.dummyjson.com/data/products/2/2.jpg"
-              alt="Product info"
-            />
-            <div className="prod__img-scale" />
-          </div>
-          <button type="button" className="prod__img-but prod__img-but_right">
-            &gt;
-          </button>
+interface MyProps {
+  onClose: () => void;
+  card: {
+    id: number;
+    alt_description: string;
+    description: string;
+    created_at: string;
+    height: number;
+    width: number;
+    likes: number;
+    urls: {
+      small: string;
+    };
+    user: {
+      name: string;
+    };
+    tags: Tag[];
+  };
+}
+
+function ModalHomeCard(props: MyProps): JSX.Element {
+  const modalRoot = document.getElementById('modal-root');
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const { likes, description, alt_description, created_at, height, width, urls, user, tags } =
+    props.card;
+  const { small } = urls;
+  const { name } = user;
+  const event = new Date(created_at);
+  const { onClose } = props;
+
+  return ReactDOM.createPortal(
+    <div className="overlay">
+      <div className="prod">
+        <div className="closer" onClick={onClose} onKeyDown={onClose} role="button" tabIndex={0}>
+          ×
         </div>
+        <div className="prod__title">{alt_description}</div>
         <div className="prod__descript-container">
-          <div className="prod__descript-item-container">
-            <div className="prod__descript-item-title">Description:</div>
-            <div className="prod__descript-item-conent">
-              SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12
-              Bionic chip with ...
+          <div className="prod__img-container">
+            <div className="prod__img-display">
+              <img className="prod__img-item" src={small} alt="Product info" />
+              <div className="prod__img-scale" />
             </div>
           </div>
-          <div className="prod__descript-item-container">
-            <div className="prod__descript-item-title">Discount Percentage:</div>
-            <div className="prod__descript-item-conent">17.94 %</div>
-          </div>
-          <div className="prod__descript-item-container">
-            <div className="prod__descript-item-title">Rating:</div>
-            <div className="prod__descript-item-conent">
-              <div className="prod__descript-item-text">4.44</div>
-              <div className="card__rate-icon" />
+          <div className="prod__descript-container">
+            <div className="prod__descript-item-container">
+              <div className="prod__descript-item-title">Tags:</div>
+              <div className="prod__descript-item-content">
+                {tags.reduce((sum, item) => {
+                  return `${sum} ${item.title},`;
+                }, '')}
+              </div>
+            </div>
+            <div className="prod__descript-item-container">
+              <div className="prod__descript-item-title">Created at:</div>
+              <div className="prod__descript-item-content">{event.toLocaleString()}</div>
+            </div>
+            <div className="prod__descript-item-container">
+              <div className="prod__descript-item-title">Likes:</div>
+              <div className="prod__descript-item-content">
+                <div className="prod__descript-item-text">{likes}</div>
+                <div className="card__rate-icon" />
+              </div>
+            </div>
+            <div className="prod__descript-item-container">
+              <div className="prod__descript-item-title">Username:</div>
+              <div className="prod__descript-item-content">{name}</div>
+            </div>
+            <div className="prod__descript-item-container">
+              <div className="prod__descript-item-title">Ratio:</div>
+              <div className="prod__descript-item-content">{`${width} * ${height}px`}</div>
+            </div>
+            <div className="prod__descript-item-container">
+              <div className="prod__descript-item-title">Description:</div>
+              <div className="prod__descript-item-content">
+                {description === null ? 'No description' : description}
+              </div>
             </div>
           </div>
-          <div className="prod__descript-item-container">
-            <div className="prod__descript-item-title">Stock:</div>
-            <div className="prod__descript-item-conent">34</div>
-          </div>
-          <div className="prod__descript-item-container">
-            <div className="prod__descript-item-title">Brand:</div>
-            <div className="prod__descript-item-conent">Apple</div>
-          </div>
-          <div className="prod__descript-item-container">
-            <div className="prod__descript-item-title">Category:</div>
-            <div className="prod__descript-item-conent">smartphones</div>
-          </div>
-        </div>
-        <div className="prod__buttons-container">
-          <div className="prod__price">899 $</div>
-          <button type="button" className="prod__but card__button_add">
-            Add to cart
-          </button>
-          <button type="button" className="prod__but prod__but-buy">
-            Buy now
-          </button>
         </div>
       </div>
-    </div>
+    </div>,
+    modalRoot
   );
 }
 
