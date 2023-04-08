@@ -9,6 +9,11 @@ interface MyProps {
 function SearchBar(props: MyProps): JSX.Element {
   const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
 
+  const handleSubmit = () => {
+    const { onSetSearchValue } = props;
+    onSetSearchValue(searchValue);
+  };
+
   useEffect(() => {
     return () => {
       localStorage.setItem('searchValue', searchValue);
@@ -19,16 +24,14 @@ function SearchBar(props: MyProps): JSX.Element {
     const value = localStorage.getItem('searchValue');
     if (value !== null) {
       setSearchValue(value);
+
+      handleSubmit();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchValue((event.target as HTMLInputElement).value);
-  }
-
-  function handleSubmit() {
-    const { onSetSearchValue } = props;
-    onSetSearchValue(searchValue);
   }
 
   function onKeyPressHandler(event: React.KeyboardEvent<HTMLInputElement>) {

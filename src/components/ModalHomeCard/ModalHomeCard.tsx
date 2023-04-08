@@ -1,37 +1,17 @@
 import ReactDOM from 'react-dom';
 import './modalHomeCard.scss';
-
-interface Tag {
-  type: string;
-  title: string;
-}
+import { UnsplashCardData } from '../../types/types';
 
 interface MyProps {
   onClose: () => void;
-  card: {
-    id: number;
-    alt_description: string;
-    description: string;
-    created_at: string;
-    height: number;
-    width: number;
-    likes: number;
-    urls: {
-      small: string;
-    };
-    user: {
-      name: string;
-    };
-    tags: Tag[];
-  };
+  card: UnsplashCardData;
 }
 
 function ModalHomeCard(props: MyProps): JSX.Element {
-  const modalRoot = document.getElementById('modal-root');
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const { likes, description, alt_description, created_at, height, width, urls, user, tags } =
     props.card;
-  const { small } = urls;
+  const { regular } = urls;
   const { name } = user;
   const event = new Date(created_at);
   const { onClose } = props;
@@ -46,8 +26,7 @@ function ModalHomeCard(props: MyProps): JSX.Element {
         <div className="prod__descript-container">
           <div className="prod__img-container">
             <div className="prod__img-display">
-              <img className="prod__img-item" src={small} alt="Product info" />
-              <div className="prod__img-scale" />
+              <img className="prod__img-item" src={regular} alt="Product info" />
             </div>
           </div>
           <div className="prod__descript-container">
@@ -88,7 +67,7 @@ function ModalHomeCard(props: MyProps): JSX.Element {
         </div>
       </div>
     </div>,
-    modalRoot
+    document.body
   );
 }
 

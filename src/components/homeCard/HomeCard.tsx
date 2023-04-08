@@ -1,33 +1,11 @@
 import './homeCard.scss';
-import ReactDOM from 'react-dom';
 import { useState } from 'react';
 import ModalHomeCard from '../ModalHomeCard/ModalHomeCard';
-
-interface Tag {
-  type: string;
-  title: string;
-}
+import { UnsplashCardData } from '../../types/types';
 
 interface MyProps {
-  card: {
-    id: number;
-    alt_description: string;
-    description: string;
-    created_at: string;
-    height: number;
-    width: number;
-    likes: number;
-    urls: {
-      small: string;
-    };
-    user: {
-      name: string;
-    };
-    tags: Tag[];
-  };
+  card: UnsplashCardData;
 }
-
-// const modalRoot = document.getElementById('modal-root');
 
 function HomeCard({ card }: MyProps): JSX.Element {
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -51,7 +29,6 @@ function HomeCard({ card }: MyProps): JSX.Element {
         }}
         onClick={() => {
           setModal(true);
-          console.log(modal);
         }}
         role="button"
         style={{
@@ -67,8 +44,15 @@ function HomeCard({ card }: MyProps): JSX.Element {
             Created at:{' '}
             <span className="card__value card__value_category">{event.toLocaleString()}</span>
           </li>
-          <li className="card__property">
+          {/* <li className="card__property">
             Likes: <span className="card__value card__value_brand">{likes}</span>
+          </li> */}
+          <li className="card__property">
+            Likes:{' '}
+            <span className="card__value card__value_raiting">
+              {likes}
+              <div className="card__rate-icon" />
+            </span>
           </li>
           <li className="card__property">
             Name: <span className="card__value card__value_discount">{name}</span>
@@ -84,7 +68,6 @@ function HomeCard({ card }: MyProps): JSX.Element {
         </ul>
       </div>
     </>
-    // eslint-disable-next-line jsx-a11y/interactive-supports-focus
   );
 }
 

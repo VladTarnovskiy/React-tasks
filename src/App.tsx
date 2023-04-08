@@ -28,7 +28,6 @@ function App(): JSX.Element {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-      <div id="modal-root" />
     </BrowserRouter>
   );
 }

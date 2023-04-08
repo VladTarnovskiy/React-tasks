@@ -58,16 +58,13 @@
 
             .card__value {
                 color: #ffffff;
-            }
-
-            .card__value_rating {
                 position: relative;
 
                 .card__rate-icon {
                     position: absolute;
                     right: -18px;
-                    top: -1px;
-                    background-image: url(../../assets/star.png);
+                    top: 0px;
+                    background-image: url(../../assets/like.png);
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: contain;
@@ -76,7 +73,6 @@
                     display: inline-block;
                 }
             }
-
         }
     }
 
