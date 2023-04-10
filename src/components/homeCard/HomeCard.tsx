@@ -1,61 +1,70 @@
 import './homeCard.scss';
+import { useState } from 'react';
+import ModalHomeCard from '../ModalHomeCard/ModalHomeCard';
+import { UnsplashCardData } from '../../types/types';
 
 interface MyProps {
-  card: {
-    id: number;
-    title: string;
-    description?: string;
-    price: number;
-    discountPercentage: number;
-    rating: number;
-    stock: number;
-    brand: string;
-    category: string;
-    thumbnail: string;
-  };
+  card: UnsplashCardData;
 }
 
 function HomeCard({ card }: MyProps): JSX.Element {
-  const { title, thumbnail, category, brand, price, discountPercentage, rating, stock } = card;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const { likes, description, alt_description, created_at, urls, user, tags } = card;
+  const { small } = urls;
+  const { name } = user;
+  const event = new Date(created_at);
+  const [modal, setModal] = useState(false);
+
+  const closeModalWindow = () => {
+    setModal(false);
+  };
+
   return (
-    <div
-      className="card"
-      style={{
-        backgroundImage: `url(${thumbnail})`,
-      }}
-    >
-      <div className="card__title">
-        <div>{title}</div>
+    <>
+      {modal && <ModalHomeCard card={card} onClose={closeModalWindow} />}
+      <div
+        className="home__card"
+        onKeyDown={() => {
+          setModal(true);
+        }}
+        onClick={() => {
+          setModal(true);
+        }}
+        role="button"
+        style={{
+          backgroundImage: `url(${small})`,
+        }}
+        tabIndex={0}
+      >
+        <div className="card__title">
+          <div>{description === null ? alt_description : description}</div>
+        </div>
+        <ul className="card__description">
+          <li className="card__property">
+            Created at:{' '}
+            <span className="card__value card__value_category">{event.toLocaleString()}</span>
+          </li>
+          <li className="card__property">
+            Likes:{' '}
+            <span className="card__value card__value_likes">
+              {likes}
+              <div className="card__rate-icon" />
+            </span>
+          </li>
+          <li className="card__property">
+            Name: <span className="card__value card__value_discount">{name}</span>
+          </li>
+          <li className="card__property">
+            Tags:{' '}
+            <span className="card__value card__value_stock">
+              {tags.reduce((sum, item) => {
+                return `${sum} ${item.title},`;
+              }, '')}
+            </span>
+          </li>
+        </ul>
       </div>
-      <ul className="card__description">
-        <li className="card__property">
-          Category: <span className="card__value card__value_category">{category}</span>
-        </li>
-        <li className="card__property">
-          Brand: <span className="card__value card__value_brand">{brand}</span>
-        </li>
-        <li className="card__property">
-          Price:{' '}
-          <span className="card__value card__value_price">
-            {price}
-            <span> $</span>
-          </span>
-        </li>
-        <li className="card__property">
-          Discount: <span className="card__value card__value_discount">{discountPercentage} %</span>
-        </li>
-        <li className="card__property">
-          Rating:{' '}
-          <span className="card__value card__value_rating">
-            {rating}
-            <div className="card__rate-icon" />
-          </span>
-        </li>
-        <li className="card__property">
-          Stock: <span className="card__value card__value_stock">{stock}</span>
-        </li>
-      </ul>
-    </div>
+    </>
   );
 }
 

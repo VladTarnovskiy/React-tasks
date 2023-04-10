@@ -1,8 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { render, screen } from '@testing-library/react';
-import HomeCard from './HomeCard';
+import ModalHomeCard from './ModalHomeCard';
 
-describe('Card Component', () => {
+describe('Modal card component', () => {
+  const x = (): void => {
+    // eslint-disable-next-line no-console
+    console.log(test);
+  };
   const props = {
     card: {
       id: 24,
@@ -24,11 +28,12 @@ describe('Card Component', () => {
         { type: 'landing_page', title: 'background' },
       ],
     },
+    onClose: x,
   };
 
-  test('Renders card with text', () => {
-    render(<HomeCard {...props} />);
-    const homeElement = screen.getByText('Name:');
+  test('Get card text', () => {
+    render(<ModalHomeCard {...props} />);
+    const homeElement = screen.getByText('Username:');
     expect(homeElement).toBeInTheDocument();
   });
 });

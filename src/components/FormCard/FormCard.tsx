@@ -12,7 +12,7 @@ function FormCard(props: MyProps): JSX.Element {
 
   return (
     <div
-      className="card"
+      className="form__card"
       style={{
         backgroundImage: `url(${photo})`,
       }}

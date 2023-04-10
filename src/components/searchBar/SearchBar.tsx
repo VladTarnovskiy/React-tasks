@@ -3,11 +3,16 @@ import React, { useEffect, useState } from 'react';
 import Search from '../../assets/search.png';
 
 interface MyProps {
-  onSearch: (value: string) => void;
+  onSetSearchValue: (value: string) => void;
 }
 
 function SearchBar(props: MyProps): JSX.Element {
   const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
+
+  const handleSubmit = () => {
+    const { onSetSearchValue } = props;
+    onSetSearchValue(searchValue);
+  };
 
   useEffect(() => {
     return () => {
@@ -15,20 +20,8 @@ function SearchBar(props: MyProps): JSX.Element {
     };
   });
 
-  useEffect(() => {
-    const value = localStorage.getItem('searchValue');
-    if (value !== null) {
-      setSearchValue(value);
-    }
-  }, []);
-
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchValue((event.target as HTMLInputElement).value);
-  }
-
-  function handleSubmit() {
-    const { onSearch } = props;
-    onSearch(searchValue);
   }
 
   function onKeyPressHandler(event: React.KeyboardEvent<HTMLInputElement>) {
