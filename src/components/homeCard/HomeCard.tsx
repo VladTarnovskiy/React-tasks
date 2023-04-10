@@ -44,12 +44,9 @@ function HomeCard({ card }: MyProps): JSX.Element {
             Created at:{' '}
             <span className="card__value card__value_category">{event.toLocaleString()}</span>
           </li>
-          {/* <li className="card__property">
-            Likes: <span className="card__value card__value_brand">{likes}</span>
-          </li> */}
           <li className="card__property">
             Likes:{' '}
-            <span className="card__value card__value_raiting">
+            <span className="card__value card__value_likes">
               {likes}
               <div className="card__rate-icon" />
             </span>

@@ -5,27 +5,30 @@ import HomeCard from './HomeCard';
 describe('Card Component', () => {
   const props = {
     card: {
-      id: 1,
-      title: 'iPhone 9',
+      id: 24,
+      likes: 23,
       description: 'It card',
-      price: 549,
-      discountPercentage: 12.96,
-      rating: 4.69,
-      stock: 94,
-      brand: 'Apple',
-      category: 'smartphones',
-      thumbnail: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
+      alt_description: 'It card',
+      created_at: '2018-09-20T05:12:49Z',
+      height: 2000,
+      width: 2000,
+      urls: {
+        regular:
+          'https://images.unsplash.com/photo-1537420327992-d6e192287183?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw0MzI3Njd8MHwxfHNlYXJjaHwxfHxzcGFjZXxlbnwwfHx8fDE2ODEwNzkzMTA&ixlib=rb-4.0.3&q=85',
+        small:
+          'https://images.unsplash.com/photo-1537420327992-d6e192287183?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw0MzI3Njd8MHwxfHNlYXJjaHwxfHxzcGFjZXxlbnwwfHx8fDE2ODEwNzkzMTA&ixlib=rb-4.0.3&q=85',
+      },
+      user: { name: 'Jack' },
+      tags: [
+        { type: 'landing_page', title: 'grey' },
+        { type: 'landing_page', title: 'background' },
+      ],
     },
   };
 
-  test('renders card Apple', () => {
-    it('Renders hello world', () => {
-      render(<HomeCard {...props} />);
-      expect(
-        screen.getByRole('heading', {
-          level: 1,
-        })
-      ).toHaveTextContent('Apple');
-    });
+  test('Renders card with text', () => {
+    render(<HomeCard {...props} />);
+    const homeElement = screen.getByText('Name:');
+    expect(homeElement).toBeInTheDocument();
   });
 });

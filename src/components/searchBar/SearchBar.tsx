@@ -20,16 +20,6 @@ function SearchBar(props: MyProps): JSX.Element {
     };
   });
 
-  useEffect(() => {
-    const value = localStorage.getItem('searchValue');
-    if (value !== null) {
-      setSearchValue(value);
-
-      handleSubmit();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchValue((event.target as HTMLInputElement).value);
   }

@@ -7,12 +7,21 @@ import { UnsplashCardData } from '../../types/types';
 
 function Home(): JSX.Element {
   const [photosData, setPhotosData] = useState<UnsplashCardData[]>();
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(12);
   const [butDisabled, setButDisabled] = useState(false);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState('');
+
+  // useEffect(() => {
+  //   const value = localStorage.getItem('searchValue');
+  //   if (value !== null) {
+  //     // setSearchValue(value);
+  //     setSearchValue(value);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   useEffect(() => {
     setIsPending(true);
