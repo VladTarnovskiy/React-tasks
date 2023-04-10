@@ -10,6 +10,7 @@ function Home(): JSX.Element {
   const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(12);
+  const [sort, setSort] = useState('relevant');
   const [butDisabled, setButDisabled] = useState(false);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState('');
@@ -25,9 +26,9 @@ function Home(): JSX.Element {
 
   useEffect(() => {
     setIsPending(true);
-    const getData = async (value: string, pageNum: number, perPageNum: number) => {
+    const getData = async (value: string, pageNum: number, perPageNum: number, imgSort: string) => {
       try {
-        const url = `https://api.unsplash.com/search/photos?page=${pageNum}&per_page=${perPageNum}&query=${value}&client_id=_G-CEdAh_ell-uiSFlqCmINuadGChAQovi-i-wsPf3Q`;
+        const url = `https://api.unsplash.com/search/photos?page=${pageNum}&per_page=${perPageNum}&order_by=${imgSort}&query=${value}&client_id=_G-CEdAh_ell-uiSFlqCmINuadGChAQovi-i-wsPf3Q`;
         const response = await fetch(url);
         if (!response.ok) {
           throw Error('Could not fetch the data for that resource.');
@@ -43,17 +44,31 @@ function Home(): JSX.Element {
         }
       }
     };
-    getData(searchValue, page, perPage);
+    getData(searchValue, page, perPage, sort);
     if (page === 1) {
       setButDisabled(true);
     } else {
       setButDisabled(false);
     }
-  }, [searchValue, page, perPage]);
+  }, [searchValue, page, perPage, sort]);
 
   return (
     <div>
-      <SearchBar onSetSearchValue={setSearchValue} />
+      <div className="search__container">
+        <SearchBar onSetSearchValue={setSearchValue} />
+        <select
+          name="imgSort"
+          className="input__sort"
+          onChange={(e) => {
+            setSort(e.target.value);
+          }}
+          defaultValue="relevant"
+        >
+          <option value="relevant">relevant</option>
+          <option value="latest">latest</option>
+        </select>
+      </div>
+
       <div className="product-items">
         {error && <div className="error__data">{error}</div>}
         {!error && isPending && (
