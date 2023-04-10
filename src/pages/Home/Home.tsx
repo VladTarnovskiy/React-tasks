@@ -15,15 +15,6 @@ function Home(): JSX.Element {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState('');
 
-  // useEffect(() => {
-  //   const value = localStorage.getItem('searchValue');
-  //   if (value !== null) {
-  //     // setSearchValue(value);
-  //     setSearchValue(value);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
   useEffect(() => {
     setIsPending(true);
     const getData = async (value: string, pageNum: number, perPageNum: number, imgSort: string) => {

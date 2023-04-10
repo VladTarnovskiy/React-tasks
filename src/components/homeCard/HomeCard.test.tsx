@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import HomeCard from './HomeCard';
 
 describe('Card Component', () => {
@@ -30,5 +31,20 @@ describe('Card Component', () => {
     render(<HomeCard {...props} />);
     const homeElement = screen.getByText('Name:');
     expect(homeElement).toBeInTheDocument();
+  });
+
+  test('Click card and add modal window', async () => {
+    render(<HomeCard {...props} />);
+    await userEvent.click(screen.getByText('Likes:'));
+
+    expect(screen.getByText('Ratio:')).toBeInTheDocument();
+  });
+
+  test('Close modal window', async () => {
+    render(<HomeCard {...props} />);
+    await userEvent.click(screen.getByText('Likes:'));
+    await userEvent.click(screen.getByText('×'));
+
+    expect(screen.getByText('Name:')).toBeInTheDocument();
   });
 });
