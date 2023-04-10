@@ -4,6 +4,7 @@ import { Oval } from 'react-loader-spinner';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { UnsplashCardData } from '../../types/types';
+import { getDataFromApi } from '../../utils/api';
 
 function Home(): JSX.Element {
   const [photosData, setPhotosData] = useState<UnsplashCardData[]>();
@@ -19,13 +20,7 @@ function Home(): JSX.Element {
     setIsPending(true);
     const getData = async (value: string, pageNum: number, perPageNum: number, imgSort: string) => {
       try {
-        const url = `https://api.unsplash.com/search/photos?page=${pageNum}&per_page=${perPageNum}&order_by=${imgSort}&query=${value}&client_id=_G-CEdAh_ell-uiSFlqCmINuadGChAQovi-i-wsPf3Q`;
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw Error('Could not fetch the data for that resource.');
-        }
-        const results = await response.json();
-        const data = await results.results;
+        const data = await getDataFromApi(value, pageNum, perPageNum, imgSort);
         await setPhotosData(data);
         await setIsPending(false);
         setError('');
