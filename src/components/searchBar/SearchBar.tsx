@@ -1,27 +1,36 @@
 import './searchBar.scss';
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux/es/exports';
+import { setSearchBarValue } from './searchBarSlice';
+
 import Search from '../../assets/search.png';
 
-interface MyProps {
-  onSetSearchValue: (value: string) => void;
-}
+// interface MyProps {
+//   onSetSearchValue: (value: string) => void;
+// }
 
-function SearchBar(props: MyProps): JSX.Element {
-  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
+function SearchBar(): JSX.Element {
+  // function SearchBar(props: MyProps): JSX.Element {
+  const dispatch = useDispatch();
+  // const searchValue = useSelector(selectSearchBarValue);
+  let value = '';
+
+  // const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
 
   const handleSubmit = () => {
-    const { onSetSearchValue } = props;
-    onSetSearchValue(searchValue);
+    // const { onSetSearchValue } = props;
+    // onSetSearchValue(searchValue);
+    dispatch(setSearchBarValue(value));
   };
 
-  useEffect(() => {
-    return () => {
-      localStorage.setItem('searchValue', searchValue);
-    };
-  });
+  // useEffect(() => {
+  //   return () => {
+  //     localStorage.setItem('searchValue', searchValue);
+  //   };
+  // });
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setSearchValue((event.target as HTMLInputElement).value);
+    value = (event.target as HTMLInputElement).value;
   }
 
   function onKeyPressHandler(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -38,7 +47,7 @@ function SearchBar(props: MyProps): JSX.Element {
         className="products__search"
         onChange={handleChange}
         onKeyDown={onKeyPressHandler}
-        value={searchValue}
+        // value={searchValue}
         data-testid="input-search"
       />
       <button

@@ -1,20 +1,23 @@
 import './home.scss';
 import { useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
+import { useSelector } from 'react-redux';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { UnsplashCardData } from '../../types/types';
 import { getDataFromApi } from '../../utils/api';
+import { selectSearchBarValue } from '../../components/searchBar/searchBarSlice';
 
 function Home(): JSX.Element {
   const [photosData, setPhotosData] = useState<UnsplashCardData[]>();
-  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
+  // const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(12);
   const [sort, setSort] = useState('relevant');
   const [butDisabled, setButDisabled] = useState(false);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState('');
+  const searchValue = useSelector(selectSearchBarValue);
 
   useEffect(() => {
     setIsPending(true);
@@ -41,7 +44,7 @@ function Home(): JSX.Element {
   return (
     <div>
       <div className="search__container">
-        <SearchBar onSetSearchValue={setSearchValue} />
+        <SearchBar />
         <select
           name="imgSort"
           className="input__sort"
