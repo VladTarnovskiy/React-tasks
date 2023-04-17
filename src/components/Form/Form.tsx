@@ -2,13 +2,12 @@
 import './form.scss';
 import { useRef } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { CardData, FormData } from '../../types/types';
+import { useDispatch } from 'react-redux/es/exports';
+import { FormData } from '../../types/types';
+import { addCard } from './formSlice';
 
-interface MyProps {
-  addCard: (card: CardData) => void;
-}
-
-function Form(props: MyProps): JSX.Element {
+function Form(): JSX.Element {
+  const dispatch = useDispatch();
   const formMessageRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -26,7 +25,6 @@ function Form(props: MyProps): JSX.Element {
   };
 
   const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
-    const { addCard } = props;
     const link = getFileLink(data.photo);
     const formData = {
       name: data.name,
@@ -38,7 +36,7 @@ function Form(props: MyProps): JSX.Element {
       rules: data.rules,
     };
     getFileLink(data.photo);
-    addCard(formData);
+    dispatch(addCard(formData));
     formMessageRef.current?.classList.add('active');
     reset();
     setTimeout(() => {

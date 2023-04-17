@@ -1,16 +1,18 @@
 import './home.scss';
 import { useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { UnsplashCardData } from '../../types/types';
-import { getDataFromApi } from '../../utils/api';
 import { selectSearchBarValue } from '../../components/searchBar/searchBarSlice';
+import { selectAllPosts, fetchHomeCards } from '../../components/homeCard/homeCardsSlice';
+import store from '../../app/store';
+
+type AppDispatch = typeof store.dispatch;
+const useAppDispatch = () => useDispatch<AppDispatch>();
 
 function Home(): JSX.Element {
-  const [photosData, setPhotosData] = useState<UnsplashCardData[]>();
-  // const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(12);
   const [sort, setSort] = useState('relevant');
@@ -18,13 +20,14 @@ function Home(): JSX.Element {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState('');
   const searchValue = useSelector(selectSearchBarValue);
+  const photosData = useSelector(selectAllPosts);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setIsPending(true);
     const getData = async (value: string, pageNum: number, perPageNum: number, imgSort: string) => {
       try {
-        const data = await getDataFromApi(value, pageNum, perPageNum, imgSort);
-        await setPhotosData(data);
+        await dispatch(fetchHomeCards({ value, pageNum, perPageNum, imgSort }));
         await setIsPending(false);
         setError('');
       } catch (err) {
@@ -39,7 +42,7 @@ function Home(): JSX.Element {
     } else {
       setButDisabled(false);
     }
-  }, [searchValue, page, perPage, sort]);
+  }, [searchValue, page, perPage, sort, dispatch]);
 
   return (
     <div>
