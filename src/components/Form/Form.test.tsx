@@ -2,22 +2,16 @@ import { describe } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Form from './Form';
-import { CardData } from '../../types/types';
 
 describe('Form', () => {
-  const x = (card: CardData): void => {
-    // eslint-disable-next-line no-console
-    console.log(card);
-    throw new Error('Function not implemented.');
-  };
   test('Form', () => {
-    render(<Form addCard={x} />);
+    render(<Form />);
     const homeElement = screen.getByText('Personal data');
     expect(homeElement).toBeInTheDocument();
   });
 
   test('user must enter name, created, status, image', async () => {
-    render(<Form addCard={x} />);
+    render(<Form />);
 
     await userEvent.click(screen.getByTestId('submit'));
 
@@ -31,7 +25,7 @@ describe('Form', () => {
   });
 
   test('Name with capital letter', async () => {
-    render(<Form addCard={x} />);
+    render(<Form />);
 
     await userEvent.type(screen.getByTestId('input-name'), 'jack');
     await userEvent.click(screen.getByTestId('submit'));
@@ -39,7 +33,7 @@ describe('Form', () => {
   });
 
   test('submit card', async () => {
-    render(<Form addCard={x} />);
+    render(<Form />);
 
     await userEvent.type(screen.getByTestId('input-name'), 'Name');
     await userEvent.type(screen.getByTestId('input-date'), '02/02/2022');

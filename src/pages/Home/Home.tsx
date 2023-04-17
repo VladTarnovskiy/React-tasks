@@ -1,41 +1,33 @@
 import './home.scss';
 import { useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
+import { useSelector, useDispatch } from 'react-redux';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { UnsplashCardData } from '../../types/types';
+import { selectSearchBarValue } from '../../components/searchBar/searchBarSlice';
+import { selectAllPosts, fetchHomeCards } from '../../components/homeCard/homeCardsSlice';
+import store from '../../app/store';
+
+type AppDispatch = typeof store.dispatch;
+const useAppDispatch = () => useDispatch<AppDispatch>();
 
 function Home(): JSX.Element {
-  const [photosData, setPhotosData] = useState<UnsplashCardData[]>();
-  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(12);
   const [sort, setSort] = useState('relevant');
   const [butDisabled, setButDisabled] = useState(false);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState('');
-
-  // useEffect(() => {
-  //   const value = localStorage.getItem('searchValue');
-  //   if (value !== null) {
-  //     // setSearchValue(value);
-  //     setSearchValue(value);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  const searchValue = useSelector(selectSearchBarValue);
+  const photosData = useSelector(selectAllPosts);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setIsPending(true);
     const getData = async (value: string, pageNum: number, perPageNum: number, imgSort: string) => {
       try {
-        const url = `https://api.unsplash.com/search/photos?page=${pageNum}&per_page=${perPageNum}&order_by=${imgSort}&query=${value}&client_id=_G-CEdAh_ell-uiSFlqCmINuadGChAQovi-i-wsPf3Q`;
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw Error('Could not fetch the data for that resource.');
-        }
-        const results = await response.json();
-        const data = await results.results;
-        await setPhotosData(data);
+        await dispatch(fetchHomeCards({ value, pageNum, perPageNum, imgSort }));
         await setIsPending(false);
         setError('');
       } catch (err) {
@@ -50,12 +42,12 @@ function Home(): JSX.Element {
     } else {
       setButDisabled(false);
     }
-  }, [searchValue, page, perPage, sort]);
+  }, [searchValue, page, perPage, sort, dispatch]);
 
   return (
     <div>
       <div className="search__container">
-        <SearchBar onSetSearchValue={setSearchValue} />
+        <SearchBar />
         <select
           name="imgSort"
           className="input__sort"
