@@ -1,12 +1,13 @@
 import './searchBar.scss';
-import { useDispatch } from 'react-redux/es/exports';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { useState } from 'react';
-import { setSearchBarValue } from './searchBarSlice';
+import { selectSearchBarValue, setSearchBarValue } from './searchBarSlice';
 import Search from '../../assets/search.png';
 
 function SearchBar(): JSX.Element {
   const dispatch = useDispatch();
-  const [searchValue, setSearchValue] = useState('');
+  const searchValueFromStorage = useSelector(selectSearchBarValue);
+  const [searchValue, setSearchValue] = useState(searchValueFromStorage);
   const handleSubmit = () => {
     dispatch(setSearchBarValue(searchValue));
   };
@@ -30,6 +31,7 @@ function SearchBar(): JSX.Element {
         onChange={handleChange}
         onKeyDown={onKeyPressHandler}
         data-testid="input-search"
+        defaultValue={searchValueFromStorage}
       />
       <button
         type="button"
