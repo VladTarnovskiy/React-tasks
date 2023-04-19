@@ -1,0 +1,38 @@
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 350px;
+}
+
+.products__search {
+    height: 40px;
+    border-radius: 20px 0 0 20px;
+    max-width: 500px;
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px;
+    padding-left: 16px;
+    outline: none;
+    border: 1px #000000 solid;
+    border-right: none;
+    font-family: "Roboto Light", sans-serif;
+}
+
+.search__button {
+    border: 1px solid;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    background-color: #70a6fd;
+    box-sizing: border-box;
+    height: 40px;
+    transition: all 0.1s linear;
+
+    &:hover {
+        transform: scale(1.04);
+    }
+
+    &:active {
+        transform: scale(1)
+    }
+}
