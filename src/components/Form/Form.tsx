@@ -1,14 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import './form.scss';
-import { useRef } from 'react';
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux/es/exports';
+import { useAppDispatch } from '../../app/hooks';
 import { FormData } from '../../types/types';
 import { addCard } from './formSlice';
+import Modal from '../Modal/Modal';
 
 function Form(): JSX.Element {
-  const dispatch = useDispatch();
-  const formMessageRef = useRef<HTMLDivElement>(null);
+  const dispatch = useAppDispatch();
+  const [modalForm, setModalForm] = useState(false);
 
   const {
     register,
@@ -37,18 +38,22 @@ function Form(): JSX.Element {
     };
     getFileLink(data.photo);
     dispatch(addCard(formData));
-    formMessageRef.current?.classList.add('active');
+    setModalForm(true);
     reset();
     setTimeout(() => {
-      formMessageRef.current?.classList.remove('active');
+      setModalForm(false);
     }, 3000);
   };
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)} data-testid="form">
-      <div className="form__saved" ref={formMessageRef}>
-        <div className="form__saved-message">Data saved!</div>
-      </div>
+      {modalForm && (
+        <Modal>
+          <div className="form__saved">
+            <div className="form__saved-message">Data saved!</div>
+          </div>
+        </Modal>
+      )}
       <div className="form__title">Personal data</div>
       <div className="input__item">
         <div className="input__item-title">Name:</div>

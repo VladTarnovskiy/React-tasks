@@ -1,16 +1,12 @@
 import './home.scss';
 import { useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
-import { useSelector, useDispatch } from 'react-redux';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { UnsplashCardData } from '../../types/types';
 import { selectSearchBarValue } from '../../components/searchBar/searchBarSlice';
 import { selectAllPosts, fetchHomeCards } from '../../components/homeCard/homeCardsSlice';
-import store from '../../app/store';
-
-type AppDispatch = typeof store.dispatch;
-const useAppDispatch = () => useDispatch<AppDispatch>();
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 function Home(): JSX.Element {
   const [page, setPage] = useState(1);
@@ -19,8 +15,8 @@ function Home(): JSX.Element {
   const [butDisabled, setButDisabled] = useState(false);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState('');
-  const searchValue = useSelector(selectSearchBarValue);
-  const photosData = useSelector(selectAllPosts);
+  const searchValue = useAppSelector(selectSearchBarValue);
+  const photosData = useAppSelector(selectAllPosts);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

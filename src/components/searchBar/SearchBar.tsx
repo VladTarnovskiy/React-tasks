@@ -1,12 +1,12 @@
 import './searchBar.scss';
-import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { useState } from 'react';
 import { selectSearchBarValue, setSearchBarValue } from './searchBarSlice';
 import Search from '../../assets/search.png';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 function SearchBar(): JSX.Element {
-  const dispatch = useDispatch();
-  const searchValueFromStorage = useSelector(selectSearchBarValue);
+  const dispatch = useAppDispatch();
+  const searchValueFromStorage = useAppSelector(selectSearchBarValue);
   const [searchValue, setSearchValue] = useState(searchValueFromStorage);
   const handleSubmit = () => {
     dispatch(setSearchBarValue(searchValue));

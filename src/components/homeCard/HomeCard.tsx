@@ -2,6 +2,7 @@ import './homeCard.scss';
 import { useState } from 'react';
 import ModalHomeCard from '../ModalHomeCard/ModalHomeCard';
 import { UnsplashCardData } from '../../types/types';
+import Modal from '../Modal/Modal';
 
 interface MyProps {
   card: UnsplashCardData;
@@ -21,7 +22,11 @@ function HomeCard({ card }: MyProps): JSX.Element {
 
   return (
     <>
-      {modal && <ModalHomeCard card={card} onClose={closeModalWindow} />}
+      {modal && (
+        <Modal>
+          <ModalHomeCard card={card} onClose={closeModalWindow} />
+        </Modal>
+      )}
       <div
         className="home__card"
         onKeyDown={() => {
