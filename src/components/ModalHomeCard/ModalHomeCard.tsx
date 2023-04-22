@@ -8,11 +8,20 @@ interface MyProps {
 
 function ModalHomeCard(props: MyProps): JSX.Element {
   const { card } = props;
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  const { likes, description, alt_description, created_at, height, width, urls, user, tags } = card;
+  const {
+    likes,
+    description,
+    alt_description: altDescription,
+    created_at: createdAt,
+    height,
+    width,
+    urls,
+    user,
+    tags,
+  } = card;
   const { regular } = urls;
   const { name } = user;
-  const event = new Date(created_at);
+  const event = new Date(createdAt);
   const { onClose } = props;
 
   return (
@@ -20,7 +29,7 @@ function ModalHomeCard(props: MyProps): JSX.Element {
       <div className="closer" onClick={onClose} onKeyDown={onClose} role="button" tabIndex={0}>
         ×
       </div>
-      <div className="prod__title">{alt_description}</div>
+      <div className="prod__title">{altDescription}</div>
       <div className="prod__description-container">
         <div className="prod__img-container">
           <div className="prod__img-display">

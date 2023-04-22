@@ -14,6 +14,7 @@ function Home(): JSX.Element {
   const [sort, setSort] = useState('relevant');
   const [butDisabled, setButDisabled] = useState(false);
   const [isPending, setIsPending] = useState(true);
+  const [noProductMessage, setNoProductMessage] = useState(false);
   const [error, setError] = useState('');
   const searchValue = useAppSelector(selectSearchBarValue);
   const photosData = useAppSelector(selectAllPosts);
@@ -25,6 +26,11 @@ function Home(): JSX.Element {
       try {
         await dispatch(fetchHomeCards({ value, pageNum, perPageNum, imgSort }));
         await setIsPending(false);
+        if (photosData.length === 0) {
+          setNoProductMessage(true);
+        } else {
+          setNoProductMessage(false);
+        }
         setError('');
       } catch (err) {
         if (err instanceof Error) {
@@ -38,7 +44,7 @@ function Home(): JSX.Element {
     } else {
       setButDisabled(false);
     }
-  }, [searchValue, page, perPage, sort, dispatch]);
+  }, [searchValue, page, perPage, sort, dispatch, photosData.length]);
 
   return (
     <div>
@@ -56,9 +62,9 @@ function Home(): JSX.Element {
           <option value="latest">latest</option>
         </select>
       </div>
-
       <div className="product-items">
         {error && <div className="error__data">{error}</div>}
+        {noProductMessage && <div className="error__data">No matches.</div>}
         {!error && isPending && (
           <div className="loader">
             <Oval

@@ -9,11 +9,18 @@ interface MyProps {
 }
 
 function HomeCard({ card }: MyProps): JSX.Element {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  const { likes, description, alt_description, created_at, urls, user, tags } = card;
+  const {
+    likes,
+    description,
+    alt_description: altDescription,
+    created_at: createdAt,
+    urls,
+    user,
+    tags,
+  } = card;
   const { small } = urls;
   const { name } = user;
-  const event = new Date(created_at);
+  const event = new Date(createdAt);
   const [modal, setModal] = useState(false);
 
   const closeModalWindow = () => {
@@ -42,7 +49,7 @@ function HomeCard({ card }: MyProps): JSX.Element {
         tabIndex={0}
       >
         <div className="card__title">
-          <div>{description === null ? alt_description : description}</div>
+          <div>{description === null ? altDescription : description}</div>
         </div>
         <ul className="card__description">
           <li className="card__property">
