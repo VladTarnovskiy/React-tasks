@@ -1,6 +1,6 @@
 import './home.scss';
 import { useEffect, useState } from 'react';
-import { Oval } from 'react-loader-spinner';
+// import { Oval } from 'react-loader-spinner';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { UnsplashCardData } from '../../types/types';
@@ -67,7 +67,7 @@ function Home(): JSX.Element {
         {noProductMessage && <div className="error__data">No matches.</div>}
         {!error && isPending && (
           <div className="loader">
-            <Oval
+            {/* <Oval
               height={80}
               width={80}
               color="#1063e7e6"
@@ -78,7 +78,7 @@ function Home(): JSX.Element {
               secondaryColor="#9dc2ffe6"
               strokeWidth={2}
               strokeWidthSecondary={2}
-            />
+            /> */}
           </div>
         )}
         {!isPending &&
