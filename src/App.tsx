@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
+import { Route, Routes, NavLink } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header';
@@ -8,7 +8,6 @@ import './index.scss';
 
 function App(): JSX.Element {
   return (
-    // <BrowserRouter>
     <div>
       <div className="navigation">
         <NavLink className="nav__item" to="/">
@@ -29,7 +28,6 @@ function App(): JSX.Element {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
-    // </BrowserRouter>
   );
 }
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { UnsplashCardData } from '../../types/types';
-import { getDataFromApi } from '../../utils/api';
+import getDataFromApi from '../../utils/api';
 
 interface HomeCardsInputData {
   value: string;

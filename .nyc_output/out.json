@@ -1,0 +1,344 @@
+{
+  "C:/Users/DELL/Desktop/React-task-one/src/App.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/App.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/App.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/App.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/data.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/data.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/entry-client.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/entry-client.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/entry-server.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/entry-server.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/main.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/main.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/setupTests.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/setupTests.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/vite-env.d.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/vite-env.d.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/app/hooks.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/app/hooks.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/app/store.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/app/store.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/types/types.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/types/types.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/utils/api.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/utils/api.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/Form/Form.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/Form/Form.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/Form/Form.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/Form/Form.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/Form/formSlice.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/Form/formSlice.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/FormCard/FormCard.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/FormCard/FormCard.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/FormCard/FormCard.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/FormCard/FormCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/Header/Header.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/Header/Header.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/Header/Header.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/Header/Header.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/homeCard/HomeCard.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/homeCard/HomeCard.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/homeCard/HomeCard.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/homeCard/HomeCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/homeCard/homeCardsSlice.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/homeCard/homeCardsSlice.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/Loader/Loader.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/Loader/Loader.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/Modal/Modal.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/Modal/Modal.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/ModalHomeCard/ModalHomeCard.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/ModalHomeCard/ModalHomeCard.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/ModalHomeCard/ModalHomeCard.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/ModalHomeCard/ModalHomeCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/searchBar/SearchBar.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/searchBar/SearchBar.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/searchBar/SearchBar.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/searchBar/SearchBar.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/searchBar/searchBarSlice.ts": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/searchBar/searchBarSlice.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/components/SpinnerOval/SpinnerOval.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/components/SpinnerOval/SpinnerOval.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/pages/AboutUs/AboutUs.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/pages/AboutUs/AboutUs.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/pages/AboutUs/AboutUsPage.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/pages/AboutUs/AboutUsPage.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/pages/FormPage/FormPage.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/pages/FormPage/FormPage.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/pages/FormPage/FormPage.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/pages/FormPage/FormPage.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/pages/Home/Home.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/pages/Home/Home.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/pages/Home/HomePage.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/pages/Home/HomePage.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/pages/NotFound/NotFound.test.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/pages/NotFound/NotFound.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/Users/DELL/Desktop/React-task-one/src/pages/NotFound/NotFound.tsx": {
+    "path": "C:/Users/DELL/Desktop/React-task-one/src/pages/NotFound/NotFound.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  }
+}

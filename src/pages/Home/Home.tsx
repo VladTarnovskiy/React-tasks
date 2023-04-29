@@ -1,12 +1,12 @@
 import './home.scss';
-import { useEffect, useState } from 'react';
-// import { Oval } from 'react-loader-spinner';
+import { useEffect, useState, Suspense } from 'react';
 import HomeCard from '../../components/homeCard/HomeCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { UnsplashCardData } from '../../types/types';
 import { selectSearchBarValue } from '../../components/searchBar/searchBarSlice';
 import { selectAllPosts, fetchHomeCards } from '../../components/homeCard/homeCardsSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import Loader from '../../components/Loader/Loader';
 
 function Home(): JSX.Element {
   const [page, setPage] = useState(1);
@@ -25,7 +25,7 @@ function Home(): JSX.Element {
     const getData = async (value: string, pageNum: number, perPageNum: number, imgSort: string) => {
       try {
         await dispatch(fetchHomeCards({ value, pageNum, perPageNum, imgSort }));
-        await setIsPending(false);
+        setIsPending(false);
         if (photosData.length === 0) {
           setNoProductMessage(true);
         } else {
@@ -67,25 +67,15 @@ function Home(): JSX.Element {
         {noProductMessage && <div className="error__data">No matches.</div>}
         {!error && isPending && (
           <div className="loader">
-            {/* <Oval
-              height={80}
-              width={80}
-              color="#1063e7e6"
-              wrapperStyle={{}}
-              wrapperClass="loader"
-              visible
-              ariaLabel="oval-loading"
-              secondaryColor="#9dc2ffe6"
-              strokeWidth={2}
-              strokeWidthSecondary={2}
-            /> */}
+            <Loader />
           </div>
         )}
-        {!isPending &&
-          photosData &&
-          photosData.map((el: UnsplashCardData) => {
-            return <HomeCard card={el} key={el.id} />;
-          })}
+        <Suspense fallback={<Loader />}>
+          {photosData &&
+            photosData.map((el: UnsplashCardData) => {
+              return <HomeCard card={el} key={el.id} />;
+            })}
+        </Suspense>
       </div>
       <div className="pagination__container">
         <div className="pagination-page__container">

@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
-export const getDataFromApi = async (
+const getDataFromApi = async (
   value: string,
   pageNum: number,
   perPageNum: number,
@@ -14,3 +13,5 @@ export const getDataFromApi = async (
   const data = await results.results;
   return data;
 };
+
+export default getDataFromApi;
