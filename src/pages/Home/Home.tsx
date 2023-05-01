@@ -27,7 +27,7 @@ function Home(): JSX.Element {
         await dispatch(fetchHomeCards({ value, pageNum, perPageNum, imgSort }));
         setIsPending(false);
         if (photosData.length === 0) {
-          setNoProductMessage(true);
+          setNoProductMessage(false);
         } else {
           setNoProductMessage(false);
         }
@@ -62,7 +62,7 @@ function Home(): JSX.Element {
           <option value="latest">latest</option>
         </select>
       </div>
-      <div className="product-items">
+      <div className="logs__container">
         {error && <div className="error__data">{error}</div>}
         {noProductMessage && <div className="error__data">No matches.</div>}
         {!error && isPending && (
@@ -70,6 +70,8 @@ function Home(): JSX.Element {
             <Loader />
           </div>
         )}
+      </div>
+      <div className="product-items">
         <Suspense fallback={<Loader />}>
           {photosData &&
             photosData.map((el: UnsplashCardData) => {
