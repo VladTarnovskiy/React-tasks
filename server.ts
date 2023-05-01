@@ -3,11 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { createServer as createViteServer } from 'vite';
-// import qs from 'qs';
-import { store } from './src/app/store';
-import { fetchHomeCards } from './src/components/homeCard/homeCardsSlice';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const html = fs.readFileSync(path.resolve(dirname, './dist/client/index.html')).toString();
@@ -41,17 +37,8 @@ async function createServer() {
         console.error(error);
       },
       onAllReady() {
-        // fetchHomeCards((x) => {
-        //   const preloadedState = store.getState();
-
-        //   res.write(`
-        // <script>
-        //   window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
-        // </script>
-        // `);
         res.write(parts[1]);
         res.end();
-        // });
       },
       onError(error: Error) {
         console.error(error);

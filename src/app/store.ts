@@ -9,6 +9,12 @@ export const store = configureStore({
     homeCards: homeCardsReducer,
     formData: formReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: null,
+      },
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
