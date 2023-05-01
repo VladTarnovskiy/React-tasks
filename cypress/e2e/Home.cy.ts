@@ -5,5 +5,3 @@ describe('Home', () => {
     cy.get('.pagination-page__counter').contains('2');
   });
 });
-
-export {};

@@ -4,5 +4,3 @@ describe('About', () => {
     cy.get('.about__us').contains('We are technical market.');
   });
 });
-
-export {};

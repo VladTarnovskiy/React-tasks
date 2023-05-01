@@ -1,13 +1,12 @@
 /* eslint-disable no-console */
-import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
 import { createServer as createViteServer } from 'vite';
+import { readFile } from 'fs/promises';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
-const html = fs.readFileSync(path.resolve(dirname, './dist/client/index.html')).toString();
-const parts = html.split('not rendered');
+const indexHTML = path.resolve(dirname, 'index.html');
 
 async function createServer() {
   const app = express();
@@ -19,9 +18,11 @@ async function createServer() {
   app.use(vite.middlewares);
 
   app.use('*', async (req, res) => {
-    res.write(parts[0]);
-
     const url = req.originalUrl;
+    let html = await readFile(indexHTML, 'utf-8');
+    html = await vite.transformIndexHtml(url, html);
+    const parts = html.split('not rendered');
+    res.write(parts[0]);
 
     const isProd = process.env.NODE_ENV === 'production';
     const entryServerPath = isProd ? './server/entry-server.js' : '/src/entry-server.tsx';
