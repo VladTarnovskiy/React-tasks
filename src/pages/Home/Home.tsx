@@ -14,7 +14,6 @@ function Home(): JSX.Element {
   const [sort, setSort] = useState('relevant');
   const [butDisabled, setButDisabled] = useState(false);
   const [isPending, setIsPending] = useState(true);
-  const [noProductMessage, setNoProductMessage] = useState(false);
   const [error, setError] = useState('');
   const searchValue = useAppSelector(selectSearchBarValue);
   const photosData = useAppSelector(selectAllPosts);
@@ -26,11 +25,6 @@ function Home(): JSX.Element {
       try {
         await dispatch(fetchHomeCards({ value, pageNum, perPageNum, imgSort }));
         setIsPending(false);
-        if (photosData.length === 0) {
-          setNoProductMessage(false);
-        } else {
-          setNoProductMessage(false);
-        }
         setError('');
       } catch (err) {
         if (err instanceof Error) {
@@ -64,7 +58,7 @@ function Home(): JSX.Element {
       </div>
       <div className="logs__container">
         {error && <div className="error__data">{error}</div>}
-        {noProductMessage && <div className="error__data">No matches.</div>}
+        {photosData.length === 0 && !isPending && <div className="error__data">No matches.</div>}
         {!error && isPending && (
           <div className="loader">
             <Loader />

@@ -56,7 +56,7 @@ describe('Form', () => {
     await userEvent.type(screen.getByTestId('input-name'), 'Name');
     await userEvent.type(screen.getByTestId('input-date'), '02/02/2022');
     await userEvent.type(screen.getByTestId('input-country'), 'Belarus');
-    await userEvent.type(screen.getByTestId('input-vehicle'), 'car');
+    await userEvent.type(screen.getByTestId('input-vehicle-car'), 'car');
     await userEvent.type(screen.getByTestId('input-gender'), 'male');
     await userEvent.type(screen.getByTestId('input-file'), 'noname.png');
     await userEvent.type(screen.getByTestId('input-rule'), 'rule');

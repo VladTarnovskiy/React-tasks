@@ -121,7 +121,7 @@ function Form(): JSX.Element {
               id="car"
               value="car"
               {...register('vehicle')}
-              data-testid="input-vehicle"
+              data-testid="input-vehicle-car"
             />{' '}
             Car
           </label>
@@ -131,6 +131,7 @@ function Form(): JSX.Element {
               id="motorcycle"
               value="motorcycle"
               {...register('vehicle', { required: 'Choose vehicle!' })}
+              data-testid="input-vehicle-motorcycle"
             />{' '}
             Motorcycle
           </label>
@@ -140,6 +141,7 @@ function Form(): JSX.Element {
               id="bike"
               value="bike"
               {...register('vehicle', { required: 'Choose vehicle!' })}
+              data-testid="input-vehicle-bike"
             />{' '}
             Bike
           </label>

@@ -1,298 +1,280 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1682978507991" clover="3.2.0">
-  <project timestamp="1682978507991" name="All files">
-    <metrics statements="182" coveredstatements="170" conditionals="59" coveredconditionals="43" methods="61" coveredmethods="53" elements="302" coveredelements="266" complexity="0" loc="182" ncloc="182" packages="16" files="21" classes="21"/>
+<coverage generated="1682984664641" clover="3.2.0">
+  <project timestamp="1682984664641" name="All files">
+    <metrics statements="170" coveredstatements="160" conditionals="57" coveredconditionals="41" methods="60" coveredmethods="53" elements="287" coveredelements="254" complexity="0" loc="170" ncloc="170" packages="15" files="20" classes="20"/>
     <package name="src">
       <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="App.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/App.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="441" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="63" type="stmt"/>
-        <line num="32" count="63" type="stmt"/>
-        <line num="34" count="63" type="stmt"/>
+        <line num="1" count="154" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="32" count="22" type="stmt"/>
+        <line num="34" count="22" type="stmt"/>
       </file>
       <file name="entry-client.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/entry-client.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="63" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.app">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="hooks.ts" path="C:/Users/DELL/Desktop/React-task-one/src/app/hooks.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="63" type="stmt"/>
-        <line num="5" count="63" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
       </file>
       <file name="store.ts" path="C:/Users/DELL/Desktop/React-task-one/src/app/store.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="6" count="63" type="stmt"/>
-        <line num="13" count="63" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Form">
       <metrics statements="26" coveredstatements="25" conditionals="20" coveredconditionals="11" methods="8" coveredmethods="7"/>
       <file name="Form.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/components/Form/Form.tsx">
         <metrics statements="20" coveredstatements="19" conditionals="20" coveredconditionals="11" methods="6" coveredmethods="5"/>
-        <line num="10" count="36" type="stmt"/>
-        <line num="11" count="36" type="stmt"/>
-        <line num="12" count="36" type="stmt"/>
-        <line num="19" count="63" type="stmt"/>
-        <line num="23" count="36" type="stmt"/>
-        <line num="24" count="18" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="18" type="stmt"/>
-        <line num="28" count="36" type="stmt"/>
-        <line num="29" count="9" type="stmt"/>
-        <line num="30" count="9" type="stmt"/>
-        <line num="39" count="9" type="stmt"/>
-        <line num="40" count="9" type="stmt"/>
-        <line num="41" count="9" type="stmt"/>
-        <line num="42" count="9" type="stmt"/>
-        <line num="43" count="9" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="23" count="15" type="stmt"/>
+        <line num="24" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="28" count="15" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
-        <line num="48" count="36" type="stmt"/>
-        <line num="76" count="9" type="cond" truecount="1" falsecount="1"/>
-        <line num="221" count="63" type="stmt"/>
-        <line num="223" count="63" type="stmt"/>
+        <line num="48" count="15" type="stmt"/>
+        <line num="76" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="223" count="22" type="stmt"/>
+        <line num="225" count="22" type="stmt"/>
       </file>
       <file name="formSlice.ts" path="C:/Users/DELL/Desktop/React-task-one/src/components/Form/formSlice.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="9" count="63" type="stmt"/>
-        <line num="13" count="63" type="stmt"/>
-        <line num="18" count="9" type="stmt"/>
-        <line num="19" count="9" type="stmt"/>
-        <line num="24" count="63" type="stmt"/>
-        <line num="28" count="63" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="24" count="22" type="stmt"/>
+        <line num="28" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.components.FormCard">
       <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="FormCard.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/components/FormCard/FormCard.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="441" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="9" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="39" count="63" type="stmt"/>
-        <line num="41" count="63" type="stmt"/>
+        <line num="1" count="154" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="39" count="22" type="stmt"/>
+        <line num="41" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Header">
       <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
       <file name="Header.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/components/Header/Header.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
-        <line num="4" count="90" type="stmt"/>
-        <line num="5" count="90" type="stmt"/>
-        <line num="7" count="90" type="stmt"/>
-        <line num="8" count="90" type="cond" truecount="4" falsecount="0"/>
-        <line num="10" count="45" type="stmt"/>
-        <line num="12" count="18" type="stmt"/>
-        <line num="14" count="18" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="20" count="90" type="stmt"/>
-        <line num="21" count="63" type="stmt"/>
-        <line num="23" count="63" type="stmt"/>
+        <line num="4" count="31" type="stmt"/>
+        <line num="5" count="31" type="stmt"/>
+        <line num="7" count="31" type="stmt"/>
+        <line num="8" count="31" type="cond" truecount="4" falsecount="0"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="20" count="31" type="stmt"/>
+        <line num="21" count="22" type="stmt"/>
+        <line num="23" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Loader">
       <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="Loader.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/components/Loader/Loader.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="441" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="161" type="stmt"/>
-        <line num="16" count="63" type="stmt"/>
-        <line num="18" count="63" type="stmt"/>
+        <line num="1" count="154" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="53" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Modal">
       <metrics statements="13" coveredstatements="11" conditionals="5" coveredconditionals="4" methods="3" coveredmethods="2"/>
       <file name="Modal.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/components/Modal/Modal.tsx">
         <metrics statements="13" coveredstatements="11" conditionals="5" coveredconditionals="4" methods="3" coveredmethods="2"/>
-        <line num="9" count="63" type="stmt"/>
-        <line num="10" count="26" type="stmt"/>
-        <line num="11" count="26" type="stmt"/>
-        <line num="13" count="26" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="17" count="26" type="stmt"/>
-        <line num="20" count="9" type="stmt"/>
-        <line num="21" count="9" type="stmt"/>
-        <line num="22" count="9" type="cond" truecount="2" falsecount="1"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="3" type="cond" truecount="2" falsecount="1"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="27" count="26" type="stmt"/>
-        <line num="43" count="63" type="stmt"/>
-        <line num="45" count="63" type="stmt"/>
+        <line num="27" count="7" type="stmt"/>
+        <line num="43" count="22" type="stmt"/>
+        <line num="45" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.components.ModalHomeCard">
-      <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="3"/>
+      <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="3"/>
       <file name="ModalHomeCard.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/components/ModalHomeCard/ModalHomeCard.tsx">
-        <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="3"/>
-        <line num="1" count="441" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="17" type="stmt"/>
-        <line num="21" count="17" type="stmt"/>
-        <line num="22" count="17" type="stmt"/>
-        <line num="23" count="17" type="stmt"/>
-        <line num="24" count="17" type="stmt"/>
-        <line num="25" count="17" type="stmt"/>
-        <line num="27" count="17" type="stmt"/>
-        <line num="44" count="51" type="stmt"/>
-        <line num="77" count="63" type="stmt"/>
-        <line num="79" count="63" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="1" count="154" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="44" count="9" type="stmt"/>
+        <line num="77" count="22" type="stmt"/>
+        <line num="79" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.components.homeCard">
       <metrics statements="27" coveredstatements="24" conditionals="4" coveredconditionals="4" methods="11" coveredmethods="9"/>
       <file name="HomeCard.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/components/homeCard/HomeCard.tsx">
         <metrics statements="14" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
-        <line num="11" count="1021" type="stmt"/>
-        <line num="20" count="1021" type="stmt"/>
-        <line num="21" count="1021" type="stmt"/>
-        <line num="22" count="1021" type="stmt"/>
-        <line num="23" count="1021" type="stmt"/>
-        <line num="24" count="1021" type="stmt"/>
-        <line num="26" count="1021" type="stmt"/>
-        <line num="27" count="9" type="stmt"/>
-        <line num="30" count="1021" type="stmt"/>
+        <line num="11" count="294" type="stmt"/>
+        <line num="20" count="294" type="stmt"/>
+        <line num="21" count="294" type="stmt"/>
+        <line num="22" count="294" type="stmt"/>
+        <line num="23" count="294" type="stmt"/>
+        <line num="24" count="294" type="stmt"/>
+        <line num="26" count="294" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="30" count="294" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="43" count="9" type="stmt"/>
-        <line num="73" count="3063" type="stmt"/>
-        <line num="81" count="63" type="stmt"/>
-        <line num="83" count="63" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="73" count="882" type="stmt"/>
+        <line num="81" count="22" type="stmt"/>
+        <line num="83" count="22" type="stmt"/>
       </file>
       <file name="homeCardsSlice.ts" path="C:/Users/DELL/Desktop/React-task-one/src/components/homeCard/homeCardsSlice.ts">
         <metrics statements="13" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
-        <line num="19" count="63" type="stmt"/>
-        <line num="25" count="63" type="stmt"/>
-        <line num="28" count="79" type="stmt"/>
-        <line num="29" count="47" type="stmt"/>
-        <line num="33" count="63" type="stmt"/>
-        <line num="38" count="63" type="stmt"/>
-        <line num="40" count="79" type="stmt"/>
-        <line num="43" count="47" type="stmt"/>
-        <line num="44" count="47" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
+        <line num="28" count="26" type="stmt"/>
+        <line num="29" count="16" type="stmt"/>
+        <line num="33" count="22" type="stmt"/>
+        <line num="38" count="22" type="stmt"/>
+        <line num="40" count="26" type="stmt"/>
+        <line num="43" count="16" type="stmt"/>
+        <line num="44" count="16" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
-        <line num="55" count="63" type="stmt"/>
-        <line num="56" count="431" type="stmt"/>
+        <line num="55" count="22" type="stmt"/>
+        <line num="56" count="139" type="stmt"/>
       </file>
     </package>
     <package name="src.components.searchBar">
       <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="7"/>
       <file name="SearchBar.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/components/searchBar/SearchBar.tsx">
         <metrics statements="12" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="5" coveredmethods="5"/>
-        <line num="7" count="265" type="stmt"/>
-        <line num="8" count="265" type="stmt"/>
-        <line num="9" count="265" type="stmt"/>
-        <line num="10" count="265" type="stmt"/>
-        <line num="11" count="265" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
-        <line num="16" count="54" type="stmt"/>
-        <line num="20" count="63" type="cond" truecount="1" falsecount="0"/>
-        <line num="21" count="9" type="stmt"/>
-        <line num="25" count="265" type="stmt"/>
-        <line num="46" count="63" type="stmt"/>
-        <line num="48" count="63" type="stmt"/>
+        <line num="7" count="79" type="stmt"/>
+        <line num="8" count="79" type="stmt"/>
+        <line num="9" count="79" type="stmt"/>
+        <line num="10" count="79" type="stmt"/>
+        <line num="11" count="79" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="20" count="14" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="25" count="79" type="stmt"/>
+        <line num="46" count="22" type="stmt"/>
+        <line num="48" count="22" type="stmt"/>
       </file>
       <file name="searchBarSlice.ts" path="C:/Users/DELL/Desktop/React-task-one/src/components/searchBar/searchBarSlice.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="4" count="63" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="16" count="63" type="stmt"/>
-        <line num="20" count="63" type="stmt"/>
-        <line num="21" count="1122" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="21" count="344" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.AboutUs">
       <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="AboutUs.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/pages/AboutUs/AboutUs.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="441" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="18" type="stmt"/>
-        <line num="9" count="63" type="stmt"/>
-        <line num="11" count="63" type="stmt"/>
+        <line num="1" count="154" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="11" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.FormPage">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="FormPage.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/pages/FormPage/FormPage.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="7" count="27" type="stmt"/>
-        <line num="8" count="63" type="stmt"/>
-        <line num="10" count="27" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="13" count="27" type="stmt"/>
-        <line num="19" count="63" type="stmt"/>
-        <line num="21" count="63" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="21" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.Home">
-      <metrics statements="35" coveredstatements="30" conditionals="16" coveredconditionals="11" methods="11" coveredmethods="7"/>
+      <metrics statements="31" coveredstatements="27" conditionals="15" coveredconditionals="10" methods="11" coveredmethods="8"/>
       <file name="Home.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/pages/Home/Home.tsx">
-        <metrics statements="35" coveredstatements="30" conditionals="16" coveredconditionals="11" methods="11" coveredmethods="7"/>
-        <line num="11" count="227" type="stmt"/>
-        <line num="12" count="227" type="stmt"/>
-        <line num="13" count="227" type="stmt"/>
-        <line num="14" count="227" type="stmt"/>
-        <line num="15" count="227" type="stmt"/>
-        <line num="16" count="227" type="stmt"/>
-        <line num="17" count="227" type="stmt"/>
-        <line num="18" count="227" type="stmt"/>
-        <line num="19" count="227" type="stmt"/>
-        <line num="20" count="227" type="stmt"/>
-        <line num="21" count="227" type="stmt"/>
-        <line num="23" count="227" type="stmt"/>
-        <line num="24" count="79" type="stmt"/>
-        <line num="25" count="79" type="stmt"/>
-        <line num="26" count="79" type="stmt"/>
-        <line num="27" count="79" type="stmt"/>
-        <line num="28" count="47" type="stmt"/>
-        <line num="29" count="47" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="25" type="stmt"/>
-        <line num="32" count="22" type="stmt"/>
-        <line num="34" count="47" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="41" count="79" type="stmt"/>
-        <line num="42" count="79" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="70" type="stmt"/>
-        <line num="45" count="9" type="stmt"/>
-        <line num="49" count="227" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="78" count="1183" type="stmt"/>
-        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="98" count="9" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="120" count="63" type="stmt"/>
-        <line num="122" count="63" type="stmt"/>
+        <metrics statements="31" coveredstatements="27" conditionals="15" coveredconditionals="10" methods="11" coveredmethods="8"/>
+        <line num="11" count="73" type="stmt"/>
+        <line num="12" count="73" type="stmt"/>
+        <line num="13" count="73" type="stmt"/>
+        <line num="14" count="73" type="stmt"/>
+        <line num="15" count="73" type="stmt"/>
+        <line num="16" count="73" type="stmt"/>
+        <line num="17" count="73" type="stmt"/>
+        <line num="18" count="73" type="stmt"/>
+        <line num="19" count="73" type="stmt"/>
+        <line num="20" count="73" type="stmt"/>
+        <line num="22" count="73" type="stmt"/>
+        <line num="23" count="26" type="stmt"/>
+        <line num="24" count="26" type="stmt"/>
+        <line num="25" count="26" type="stmt"/>
+        <line num="26" count="26" type="stmt"/>
+        <line num="27" count="16" type="stmt"/>
+        <line num="28" count="16" type="stmt"/>
+        <line num="30" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="26" type="stmt"/>
+        <line num="36" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="22" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="43" count="73" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="72" count="336" type="stmt"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="92" count="3" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="114" count="22" type="stmt"/>
+        <line num="116" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.NotFound">
       <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="NotFound.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/pages/NotFound/NotFound.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="441" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="9" type="stmt"/>
-        <line num="11" count="63" type="stmt"/>
-        <line num="13" count="63" type="stmt"/>
+        <line num="1" count="154" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="11" count="22" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
       </file>
     </package>
     <package name="src.types">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="types.tsx" path="C:/Users/DELL/Desktop/React-task-one/src/types/types.tsx">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
-    </package>
-    <package name="src.utils">
-      <metrics statements="8" coveredstatements="7" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="api.ts" path="C:/Users/DELL/Desktop/React-task-one/src/utils/api.ts">
-        <metrics statements="8" coveredstatements="7" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="63" type="stmt"/>
-        <line num="7" count="79" type="stmt"/>
-        <line num="8" count="79" type="stmt"/>
-        <line num="9" count="48" type="cond" truecount="0" falsecount="1"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="48" type="stmt"/>
-        <line num="13" count="47" type="stmt"/>
-        <line num="14" count="47" type="stmt"/>
       </file>
     </package>
   </project>
