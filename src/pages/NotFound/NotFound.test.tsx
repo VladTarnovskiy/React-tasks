@@ -9,3 +9,8 @@ describe('Not found page', () => {
     expect(homeElement).toBeInTheDocument();
   });
 });
+
+// "cy:run": "npx cypress run --e2e && npx nyc report && npx nyc report --reporter=text-summary",
+// "cy:open": "cypress open --e2e --browser chrome",
+// "cy": "npx nyc instrument --compact=false src instrumented",
+// "cy:comp": "cypress run component",

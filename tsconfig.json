@@ -3,6 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["cypress", "node"],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,5 +21,6 @@
   },
   "include": ["src",
 "vite.config.ts", "server.ts", ".eslintrc.cjs", "index.d.ts", "cypress","cypress.config.ts"],
+"exclude": ["./node_modules/cypress", "**/*.spec.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

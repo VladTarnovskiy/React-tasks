@@ -1,13 +1,12 @@
 import { defineConfig } from 'cypress';
-import coverage from '@cypress/code-coverage/task';
+import codeCoverageTasks from '@cypress/code-coverage/task';
 
 export default defineConfig({
   e2e: {
     baseUrl: 'http://localhost:5173',
     setupNodeEvents(on, config) {
-      coverage(on, config);
+      codeCoverageTasks(on, config);
       return config;
-      // implement node event listeners here
     },
   },
 
@@ -17,4 +16,6 @@ export default defineConfig({
       bundler: 'vite',
     },
   },
+
+  video: false,
 });
