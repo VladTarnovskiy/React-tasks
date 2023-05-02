@@ -1,0 +1,116 @@
+import './home.scss';
+import { useEffect, useState, Suspense } from 'react';
+import HomeCard from '../../components/homeCard/HomeCard';
+import SearchBar from '../../components/searchBar/SearchBar';
+import { UnsplashCardData } from '../../types/types';
+import { selectSearchBarValue } from '../../components/searchBar/searchBarSlice';
+import { selectAllPosts, fetchHomeCards } from '../../components/homeCard/homeCardsSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import Loader from '../../components/Loader/Loader';
+
+function Home(): JSX.Element {
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(12);
+  const [sort, setSort] = useState('relevant');
+  const [butDisabled, setButDisabled] = useState(false);
+  const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState('');
+  const searchValue = useAppSelector(selectSearchBarValue);
+  const photosData = useAppSelector(selectAllPosts);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setIsPending(true);
+    const getData = async (value: string, pageNum: number, perPageNum: number, imgSort: string) => {
+      try {
+        await dispatch(fetchHomeCards({ value, pageNum, perPageNum, imgSort }));
+        setIsPending(false);
+        setError('');
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        }
+      }
+    };
+    getData(searchValue, page, perPage, sort);
+    if (page === 1) {
+      setButDisabled(true);
+    } else {
+      setButDisabled(false);
+    }
+  }, [searchValue, page, perPage, sort, dispatch, photosData.length]);
+
+  return (
+    <div>
+      <div className="search__container">
+        <SearchBar />
+        <select
+          name="imgSort"
+          className="input__sort"
+          onChange={(e) => {
+            setSort(e.target.value);
+          }}
+          defaultValue="relevant"
+        >
+          <option value="relevant">relevant</option>
+          <option value="latest">latest</option>
+        </select>
+      </div>
+      <div className="logs__container">
+        {error && <div className="error__data">{error}</div>}
+        {photosData.length === 0 && !isPending && <div className="error__data">No matches.</div>}
+        {!error && isPending && (
+          <div className="loader">
+            <Loader />
+          </div>
+        )}
+      </div>
+      <div className="product-items">
+        <Suspense fallback={<Loader />}>
+          {photosData &&
+            photosData.map((el: UnsplashCardData) => {
+              return <HomeCard card={el} key={el.id} />;
+            })}
+        </Suspense>
+      </div>
+      <div className="pagination__container">
+        <div className="pagination-page__container">
+          <div className="pagination-page__title">Page: </div>
+          <div className="pagination-page__control">
+            <button
+              type="button"
+              disabled={butDisabled}
+              className="pagination-page__control-but pagination-page__control-left"
+              onClick={() => setPage((prev) => (prev > 1 ? prev - 1 : prev))}
+            >
+              &lt;
+            </button>
+            <div className="pagination-page__counter">{page}</div>
+            <button
+              type="button"
+              className="pagination-page__control-but pagination-page__control-right"
+              onClick={() => setPage((prev) => prev + 1)}
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+        <div className="pagination-limit__container">
+          <div className="pagination-limit__title">Limit: </div>
+          <input
+            className="pagination-limit__value"
+            type="number"
+            defaultValue={12}
+            min="1"
+            max="20"
+            onChange={(e) => {
+              setPerPage(Number(e.target.value));
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Home;

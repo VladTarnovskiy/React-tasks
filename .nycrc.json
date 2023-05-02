@@ -1,0 +1,7 @@
+{
+  "extends": "@istanbuljs/nyc-config-typescript",
+  "all": true,
+  "include": ["src/**/*.{js,jsx,ts,tsx}"],
+  "exclude": ["src/entry-server.tsx", "src/types.tsx", "src/utils/api.ts", "src/**/*.test.tsx", "src/data.ts","src/setupTests.ts","src/vite-env.d.ts"],
+  "check-coverage": true
+}
